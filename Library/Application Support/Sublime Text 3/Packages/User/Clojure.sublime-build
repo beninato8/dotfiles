@@ -1,0 +1,4 @@
+{
+    "cmd": ["/usr/local/bin/clojure", "$file"],
+    "selector": "source.clojure"
+}

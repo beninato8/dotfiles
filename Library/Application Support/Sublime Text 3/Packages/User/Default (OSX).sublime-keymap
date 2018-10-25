@@ -1,0 +1,41 @@
+[
+  { "keys": ["super+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"}},
+  { "keys": ["super+p"], "command": "show_scope_name" },
+  { "keys": ["super+shift+r"], "command": "find_all_under" },
+  { "keys": ["super+i"], "command": "reindent", "args": {"single_line": false}},
+  { "keys": ["super+f"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
+  { "keys": ["super+t"], "command": "new_file" },
+  // { "keys": ["ctrl+p"], "command": "repl_open", "args": {"cmd": ["/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6/bin/python3.6", "-i", "-u"], "cwd": "$file_path", "encoding": "utf8", "extend_env": {"PYTHONIOENCODING": "utf-8"}, "external_id": "python", "syntax": "Packages/Python/Python.tmLanguage", "type": "subprocess"} },
+  { "keys": ["ctrl+p"], "command": "repl_open", "args": {"cmd": ["/usr/local/bin/python3", "-i", "-u"], "cwd": "$file_path", "encoding": "utf8", "extend_env": {"PYTHONIOENCODING": "utf-8"}, "external_id": "python", "syntax": "Packages/Python/Python.tmLanguage", "type": "subprocess"} },
+  { "keys": ["super+r"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
+  { "keys": ["super+e"], "command": "do_nothing" },
+  { "keys": ["super+shift+f"], "command": "do_nothing" },
+  { "keys": ["super+k", "super+k"], "command": "do_nothing"},
+
+  //origami
+  // { "keys": ["super+k", "ctrl+alt+up"], "command": "travel_to_pane", "args": {"direction": "up"} },
+  // { "keys": ["super+k", "ctrl+alt+right"], "command": "travel_to_pane", "args": {"direction": "right"} },
+  // { "keys": ["super+k", "ctrl+alt+down"], "command": "travel_to_pane", "args": {"direction": "down"} },
+  // { "keys": ["super+k", "ctrl+alt+left"], "command": "travel_to_pane", "args": {"direction": "left"} },
+
+  { "keys": ["super+k", "super+ctrl+alt+up"], "command": "carry_file_to_pane", "args": {"direction": "up"} },
+  { "keys": ["super+k", "super+ctrl+alt+right"], "command": "carry_file_to_pane", "args": {"direction": "right"} },
+  { "keys": ["super+k", "super+ctrl+alt+down"], "command": "carry_file_to_pane", "args": {"direction": "down"} },
+  { "keys": ["super+k", "super+ctrl+alt+left"], "command": "carry_file_to_pane", "args": {"direction": "left"} },
+
+  //bracket highlighter
+  { "keys": ["super+shift+h"], "command": "bh_toggle_high_visibility" },
+  {
+        "keys": ["super+shift+a"],
+        "command": "bh_key",
+        "args":
+        {
+            "lines" : true,
+            "plugin":
+            {
+                "type": ["__all__"],
+                "command": "bh_modules.bracketselect"
+            }
+        }
+    }
+]
