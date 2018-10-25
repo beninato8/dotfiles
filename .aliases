@@ -1,0 +1,292 @@
+# mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}
+# https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-dir-does-not-already-exist
+# mkdir -p sa{1..50}/sax{1..50}
+# https://askubuntu.com/questions/731721/is-there-a-way-to-create-multiple-directories-at-once-with-mkdir
+
+alias exp="echo \"mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}\""
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -='cd ~-'
+
+alias o='open .'
+alias r='rename-subs'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias ytdlbest="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias yt="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias steg='java -jar ~/GitHub/ctfs/tools/steganography/Stegsolve.jar'
+alias nms='nms -a'
+
+alias ls="ls -CFAG"
+alias l="ls -lAhFoG"
+alias cp='cp -i'
+alias mkdir='mkdir -p'
+alias g='grep'
+
+alias du='du -sch'
+alias size="\du -sch * .* | gsort -h"
+# alias du='du -sch .[!.]* *'
+
+alias z='exec zsh'
+alias a='subl ~/.aliases'
+alias zz='subl ~/.zshrc'
+
+alias c='cd ~/GitHub/pactf'
+alias d='cd ~/Desktop'
+alias b='cd ~/GitHub/beninato8-P1-PythonML/'
+alias myfortune='fortune -ae 50% /usr/local/Cellar/fortune/9708/share/games/fortunes/off /usr/local/Cellar/fortune/9708/share/games/fortunes/ 10% /Users/Nicholas/.oh-my-zsh/plugins/chucknorris/fortunes/chucknorris'
+
+alias pip3="python3 -m pip"
+# alias reinstallpython=''
+
+alias exif="exiftool -all="
+
+alias ffmpeg="ffmpeg -hide_banner"
+
+alias say="say -i"
+alias register="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f"
+
+alias speedtest="speedtest --bytes"
+alias connor="mcstatus 23.95.30.204:25565 status"
+
+alias w=where
+
+alias ks="kill -STOP"
+alias kc="kill -CONT"
+
+alias stop="kill -STOP $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+alias stahp="stop"
+alias cont="kill -CONT $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+alias mc="echo $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+
+alias clean='brew cleanup $(brew list | grep -v python)'
+
+alias please='sudo $(fc -ln -1)'
+
+alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
+
+alias brew-all='brew update; brew upgrade; brew cask upgrade; brew cask doctor; brew prune; brew doctor; clean'
+
+alias termdown='termdown -W'
+alias t='termdown'
+
+alias globs='setopt nocaseglob; setopt nullglob'
+alias sum_numbers="paste -s -d+ - | bc"
+alias seconds='globs; for m in *.{MOV,MP4,MKV,AVI,M4V}; do ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $m; done | sum_numbers'
+alias sum_folders='globs; for f in *(/); do cd $f; seconds; cd ..; done | sum_numbers'
+
+alias psa='ps aux | grep'
+
+gitNewRepo()
+{
+    #$1 = repo name
+    mkdir -p "$1"
+    cd "$1"
+    echo \# "$1" >> README.md
+    cp ../LICENSE LICENSE
+    touch .gitignore
+    git init
+    git add README.md LICENSE .gitignore
+    git commit -m "first commit"
+    git remote add origin "https://github.com/beninato8/"$1".git"
+    git push -u origin master
+}
+alias gnewrepo=gitNewRepo
+
+gitCommit()
+{
+    git commit -m "$(echo $@)"
+}
+alias gc="gitCommit"
+alias gmv="git mv -k"
+alias ga="git add"
+alias gaa="git add -A"  
+alias gs="gpl; git gc --auto; git status"  
+alias gundo="git reset HEAD~"
+alias gpl="git pull"
+alias gps="git push"
+alias gph="git push"
+alias gpsh="git push"
+alias gopen="open $(git config remote.origin.url)"
+alias gbrowser="open $(git config remote.origin.url)"
+alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
+alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git gc --prune=now --aggressive; ..; done'
+
+makeNewFile()
+{
+    #$1 = /path/file
+    touch $1
+    subl $1
+}
+alias f=makeNewFile
+
+searchInFile()
+{
+    #$1 = path
+    #$2 = text
+    grep -rinl $1 -e "$2"
+}
+# alias ff=searchInFile
+alias ff="grep -rin"
+
+searchForFileName()
+{
+    #$1 = text
+    find . -iname "*$1*" || sudo find . -iname "*$1*"
+}
+alias fn=searchForFileName
+
+searchInFilesOfType()
+{
+    #$1 = path
+    #$2 = extention
+    #$3 = text
+    find $1 -name "*.$2" -exec grep -i "$3" {} \; -print || sudo find $1 -name "*.$2" -exec grep -i "$3" {} \; -print
+}
+alias ft=searchInFilesOfType
+
+makeExecutable()
+{
+    chmod +x $1 || sudo chmod +x $1
+}
+alias x=makeExecutable
+
+goToNewFolder()
+{
+    #$1 = directory
+    mkdir -p $1
+    cd $1
+}
+# alias d=goToNewFolder
+alias gmkdir=goToNewFolder
+
+runPython()
+{
+    #$@ = python program with optional args
+    python3 "$@"
+}
+alias p=runPython
+
+decodeString64()
+{
+    #$1 = string
+    IN="$(echo $1 | tr -d '\n')"
+    echo $IN | base64 --decode && echo
+}
+alias decode=decodeString64
+
+bruteForceCesar()
+{
+    IN="$(echo "$@"|awk '{print toupper($0)}')"
+    IN="$(echo $IN | tr -d '\n')"
+    echo $IN
+    for I in $(seq 25); do
+        echo $I $IN | tr $(printf %${I}s | tr ' ' '.')\A-Z A-ZA-Z
+    done
+}
+alias cesar=bruteForceCesar
+
+binaryToASCII()
+{
+    #$1 = input
+    echo $1 | perl -lpe '$_=pack"B*",$_'
+}
+alias bta=binaryToASCII
+
+ASCIItoBinary()
+{
+    #$1 = input
+    echo $1 | perl -lpe '$_=join " ", unpack"(B8)*"'
+}
+alias atb=ASCIItoBinary
+
+binaryToDecimal()
+{
+    #$1 = input
+    echo $((2#$1))
+}
+alias btd=binaryToDecimal
+
+subtitleExtract()
+{
+    #$1 = file
+    #$2 = track num
+    mkvextract tracks $1 $2:${1[0,-4]}srt
+}
+alias extract=subtitleExtract
+
+trackNumbers()
+{
+    #$1 = file
+    mkvmerge -i $1
+}
+alias tracks=trackNumbers
+
+makeGif()
+{
+    #$1 = file
+    palette="/tmp/palette.png"
+
+    filters="fps=15"
+
+    ffmpeg -v warning -i $1 -vf "$filters,palettegen=stats_mode=diff" -y $palette
+
+    ffmpeg -i $1 -i $palette -lavfi "$filters,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" -y ${1[0,-4]}gif
+    # ffmpeg -i $1 ${1[0,-4]}gif
+}
+alias gif=makeGif
+
+encodeVideo()
+{
+    #$1 = file
+    ffmpeg -i "$1" -crf 18 -c:v libx264 -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -preset fast -c:a libmp3lame -b:a 320k "${1[0,-5]}_encoded.mp4"
+}
+alias encode=encodeVideo
+
+scaleMedia()
+{
+    #$1 = file
+    #$2 = width
+    ffmpeg -i $1 -vf "scale=trunc($2/2)*2:-1" ${1[0,-5]}"_w=$2"${1[-4,-1]}
+}
+alias scale=scaleMedia
+
+searchHistory()
+{
+    #$1 = term
+    fc -l 1 | grep -i "$1"
+}
+alias hg=searchHistory
+
+fileCD()
+{
+    [ -f "$1" ] && { cd "$(dirname "$1")"; } || { cd "$1"; } #; pwd;
+}
+alias cd=fileCD
+
+quicklook()
+{
+    qlmanage -p $1 > /dev/null 2>&1
+}
+alias q=quicklook
+
+makeSubsSRT()
+{
+    mv $1 ${1[0,-4]}ass
+    ffmpeg -i ${1[0,-4]}ass ${1[0,-4]}srt
+    mv ${1[0,-4]}ass ~/.Trash/
+}
+alias srt=makeSubsSRT
+
+extractAndConvertSubs()
+{
+    extract $1 2
+    srt ${1[0,-4]}srt
+    nohi ${1[0,-4]}srt
+}
+alias subs=extractAndConvertSubs
+
+# find / -iname "term" 2>&1 | grep -v "denied"
+# convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf
