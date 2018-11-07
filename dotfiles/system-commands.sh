@@ -18,25 +18,25 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# running "Save to disk (not to iCloud) by default"
+# # "Save to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# running "Automatically quit printer app once the print jobs complete"
+# # "Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# running "Disable the “Are you sure you want to open this application?” dialog"
+# # "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# running "Disable the crash reporter"
+# # "Disable the crash reporter"
 defaults write com.apple.CrashReporter DialogType -string "none"
 
-# running "Set Help Viewer windows to non-floating mode"
+# # "Set Help Viewer windows to non-floating mode"
 defaults write com.apple.helpviewer DevMode -bool true
 
-# running "Restart automatically if the computer freezes"
+# # "Restart automatically if the computer freezes"
 sudo systemsetup -setrestartfreeze on
 
-# running "Check for software updates daily, not just once per week"
+# # "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Download newly available updates in background
@@ -48,26 +48,26 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 # Enable the automatic update check
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 
-# running "Disable smart quotes as they’re annoying when typing code"
+# # "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-# running "Disable smart dashes as they’re annoying when typing code"
+# # "Disable smart dashes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# running "Increase sound quality for Bluetooth headphones/headsets"
+# # "Increase sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
-# running "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+# # "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# running "Disable press-and-hold for keys in favor of key repeat"
+# # "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# running "Set a blazingly fast keyboard repeat rate"
+# # "Set a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
-# running "Disable shadow in screenshots"
+# # "Disable shadow in screenshots"
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # "Keep folders on top when sorting by name (Sierra only)"
@@ -131,3 +131,11 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   Privileges -bool true \
   Comments -bool false \
   MetaData -bool true \
+
+# Most the dock settings are old
+
+# Group windows by application in Mission Control"
+defaults write com.apple.dock expose-group-apps -bool true
+
+# "Automatically hide and show the Dock"
+defaults write com.apple.dock autohide -bool true
