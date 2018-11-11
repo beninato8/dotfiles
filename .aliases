@@ -14,7 +14,7 @@ alias -- -='cd ~-'
 alias o='open .'
 alias r='rename-subs'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias ytdlbest="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias ytdlbest="youtube-dl -f 'bestvideo+bestaudio/best'"
 alias yt="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias steg='java -jar ~/GitHub/ctfs/tools/steganography/Stegsolve.jar'
 alias nms='nms -a'
@@ -74,10 +74,15 @@ alias t='termdown'
 
 alias globs='setopt nocaseglob; setopt nullglob'
 alias sum_numbers="paste -s -d+ - | bc"
-alias seconds='globs; for m in *.{MOV,MP4,MKV,AVI,M4V}; do ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $m; done | sum_numbers'
-alias sum_folders='globs; for f in *(/); do cd $f; seconds; cd ..; done | sum_numbers'
+alias seconds='ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1'
+alias sum_files='globs; for m in *.{MOV,MP4,MKV,AVI,M4V}; do seconds $m; done | sum_numbers'
+alias sum_folders='globs; for f in *(/); do cd $f; sum_files; cd ..; done | sum_numbers'
 
 alias psa='ps aux | grep'
+
+alias h='subl ~/.zsh_history'
+
+alias clock='t -zZ "%H : %M : %S"'
 
 gitNewRepo()
 {
@@ -112,7 +117,8 @@ alias gpsh="git push"
 alias gopen="open $(git config remote.origin.url)"
 alias gbrowser="open $(git config remote.origin.url)"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
-alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git gc --prune=now --aggressive; ..; done'
+alias git-clean='git gc --prune=now --aggressive'
+alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; done'
 
 makeNewFile()
 {
@@ -252,6 +258,18 @@ scaleMedia()
     ffmpeg -i $1 -vf "scale=trunc($2/2)*2:-1" ${1[0,-5]}"_w=$2"${1[-4,-1]}
 }
 alias scale=scaleMedia
+
+extractAudio()
+{
+    ffmpeg -i $1 -q:a 0 -map a ${1[0,-4]}mp3
+}
+alias audio=extractAudio
+
+extractAudio()
+{
+    ffmpeg -i $1 -vf "select=eq(n\,0)" -q:v 3 ${1[0,-4]}jpg
+}
+alias thumb=extractAudio
 
 searchHistory()
 {
