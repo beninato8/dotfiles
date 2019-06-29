@@ -9,13 +9,17 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -='cd ~-'
+alias -- -="cd ~-"
 
-alias o='open .'
+alias o='open .; osascript -e "tell application \"Finder\" to activate"'
 alias r='rename-subs'
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -f --rate 2'
+alias wallpaper='vlc --video-wallpaper'
 alias ytdlbest="youtube-dl -f 'bestvideo+bestaudio/best'"
 alias yt="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias ytdl="youtube-dl"
+alias ytf="ytdl -F"
+alias ytp="ytdl -f 22"
 alias steg='java -jar ~/GitHub/ctfs/tools/steganography/Stegsolve.jar'
 alias nms='nms -a'
 
@@ -23,32 +27,45 @@ alias ls="ls -CFAG"
 alias l="ls -lAhFoG"
 alias cp='cp -i'
 alias mkdir='mkdir -p'
-alias g='grep'
+alias g='grep -i'
 
 alias du='du -sch'
-alias size="\du -sch * .* | gsort -h"
+alias size="globs;\du -sch * .* | gsort -h"
 # alias du='du -sch .[!.]* *'
 
 alias z='exec zsh'
+# alias z=' export PATH=""; exec zsh; typeset -U PATH'
 alias a='subl ~/.aliases'
 alias zz='subl ~/.zshrc'
 
-alias c='cd ~/GitHub/pactf'
+# alias c='cd ~/GitHub/pactf'
 alias d='cd ~/Desktop'
-alias b='cd ~/GitHub/beninato8-P1-PythonML/'
+# alias b='cd ~/GitHub/beninato8-P1-PythonML/'
 alias myfortune='fortune -ae 50% /usr/local/Cellar/fortune/9708/share/games/fortunes/off /usr/local/Cellar/fortune/9708/share/games/fortunes/ 10% /Users/Nicholas/.oh-my-zsh/plugins/chucknorris/fortunes/chucknorris'
 
 alias pip3="python3 -m pip"
+alias pip="python3 -m pip"
 # alias reinstallpython=''
 
 alias exif="exiftool -all="
 
 alias ffmpeg="ffmpeg -hide_banner"
 
-alias say="say -i"
-alias register="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f"
+alias say="say -i -r 200"
+alias sayo="\say -r 200 -o"
+alias lsregister="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister"
+alias register="lsregister -f"
 
 alias speedtest="speedtest --bytes"
+alias speed="speedtest --bytes"
+alias speeed="speedtest --bytes"
+alias speeeed="speedtest --bytes"
+alias speeeeed="speedtest --bytes"
+alias speeeeeed="speedtest --bytes"
+alias speeeeeeed="speedtest --bytes"
+alias speeeeeeeed="speedtest --bytes"
+alias speeeeeeeeed="speedtest --bytes"
+alias speeeeeeeeeed="speedtest --bytes"
 alias connor="mcstatus 23.95.30.204:25565 status"
 
 alias w=where
@@ -61,16 +78,18 @@ alias stahp="stop"
 alias cont="kill -CONT $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 alias mc="echo $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 
-alias clean='brew cleanup $(brew list | grep -v python)'
+alias clean='brew cleanup -s --prune=0 $(brew list | grep -v ^python$) $(brew cask list)'
 
 alias please='sudo $(fc -ln -1)'
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
-alias brew-all='brew update; brew upgrade; brew cask upgrade; brew cask doctor; brew prune; brew doctor; clean'
+alias nompv='brew uninstall --force --ignore-dependencies mpv'
+alias brew-all='brew update; brew upgrade; nompv; brew cask upgrade; brew cask doctor; brew doctor; clean'
 
 alias termdown='termdown -W'
 alias t='termdown'
+alias clock='t -zZ "%H : %M : %S"'
 
 alias globs='setopt nocaseglob; setopt nullglob'
 alias sum_numbers="paste -s -d+ - | bc"
@@ -78,11 +97,36 @@ alias seconds='ffprobe -v error -show_entries format=duration -of default=noprin
 alias sum_files='globs; for m in *.{MOV,MP4,MKV,AVI,M4V}; do seconds $m; done | sum_numbers'
 alias sum_folders='globs; for f in *(/); do cd $f; sum_files; cd ..; done | sum_numbers'
 
-alias psa='ps aux | grep'
+alias psa='ps aux | g'
 
 alias h='subl ~/.zsh_history'
 
-alias clock='t -zZ "%H : %M : %S"'
+alias u='unzip *.zip'
+
+alias storage="df -h | head -2 | tail -1 | awk '{print \$4}'"
+alias free=storage
+
+alias update='brew-all && pip-upgrade'
+
+alias empty='trash -ey'
+
+alias mvs='globs; unzip *.zip && rename-subs; mkdir subs; for f in *.srt; do nohi $f; mv $f subs; done; rm *addic7ed*'
+
+alias reboot_sound="sudo kill $(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
+
+alias aria2c='aria2c --file-allocation=none -d ~/Desktop/yt'
+alias dl='aria2c'
+
+alias ad="addic7ed search"
+
+alias po='vlc -f --rate 1 "$(\ls | sort -R | tail -1)"'
+
+alias v='cd ~/v'
+alias viz='~/bin/battery_cycles_visualizer; ~/bin/battery_health_visualizer'
+
+alias ss='mkdir subs; for f in *.mkv; do subs $f; done; for f in *.srt; do mv $f subs; done;'
+alias ss2='mkdir subs; for f in *.mkv; do subs $f; done; for f in *.srt; do mv $f subs; done;'
+alias ss3='mkdir subs; for f in *.mkv; do subs $f 3; done; for f in *.srt; do mv $f subs; done;'
 
 gitNewRepo()
 {
@@ -114,11 +158,15 @@ alias gpl="git pull"
 alias gps="git push"
 alias gph="git push"
 alias gpsh="git push"
-alias gopen="open $(git config remote.origin.url)"
-alias gbrowser="open $(git config remote.origin.url)"
+alias gurl="echo ${$(git config remote.origin.url)%.*}"
+# alias gopen="open $(gurl)/tree/master${$(`pwd`)#*2}"
+# alias gbrowser="gopen"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
 alias git-clean='git gc --prune=now --aggressive'
 alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; done'
+alias gdiff='git diff'
+alias gd='git diff'
+alias git-email="git log --format='%ae' | uniq"
 
 makeNewFile()
 {
@@ -147,7 +195,7 @@ alias fn=searchForFileName
 searchInFilesOfType()
 {
     #$1 = path
-    #$2 = extention
+    #$2 = extension
     #$3 = text
     find $1 -name "*.$2" -exec grep -i "$3" {} \; -print || sudo find $1 -name "*.$2" -exec grep -i "$3" {} \; -print
 }
@@ -204,7 +252,7 @@ alias bta=binaryToASCII
 ASCIItoBinary()
 {
     #$1 = input
-    echo $1 | perl -lpe '$_=join " ", unpack"(B8)*"'
+    echo $1 | perl -lpe '$_=join "", unpack"(B8)*"'
 }
 alias atb=ASCIItoBinary
 
@@ -261,15 +309,21 @@ alias scale=scaleMedia
 
 extractAudio()
 {
-    ffmpeg -i $1 -q:a 0 -map a ${1[0,-4]}mp3
+    ffmpeg -i $1 -q:a 3 -map a ${1[0,-4]}mp3
 }
 alias audio=extractAudio
 
-extractAudio()
+extractThumbnail()
 {
     ffmpeg -i $1 -vf "select=eq(n\,0)" -q:v 3 ${1[0,-4]}jpg
 }
-alias thumb=extractAudio
+alias thumb=extractThumbnail
+
+extractCoverArt()
+{
+    ffmpeg -i $1 -an -vcodec copy ${1[0,-4]}jpg
+}
+alias cover=extractCoverArt
 
 searchHistory()
 {
@@ -292,19 +346,84 @@ alias q=quicklook
 
 makeSubsSRT()
 {
-    mv $1 ${1[0,-4]}ass
-    ffmpeg -i ${1[0,-4]}ass ${1[0,-4]}srt
-    mv ${1[0,-4]}ass ~/.Trash/
+    mv $1 ${1[0,-4]}
+    ffmpeg -i ${1[0,-4]} ${1[0,-4]}srt
+    mv ${1[0,-4]} ~/.Trash/
 }
 alias srt=makeSubsSRT
 
 extractAndConvertSubs()
 {
-    extract $1 2
+    num=2
+    if [[ $2 ]]; then
+        num="$2"
+    fi
+    extract $1 $num
     srt ${1[0,-4]}srt
     nohi ${1[0,-4]}srt
 }
 alias subs=extractAndConvertSubs
+
+getExtension()
+{
+    fullname=$(basename -- "$1")
+    extension="${fullname##*.}"
+    echo $extension
+}
+alias ext=getExtension
+
+getFileName()
+{
+    fullname=$(basename -- "$1")
+    filename="${fullname%.*}"
+    echo $filename
+}
+alias name=getFileName
+
+getImageDimension()
+{
+    identify -format "%w %h\n" $1
+}
+alias imgdim=getImageDimension
+
+getImageResolution()
+{
+    identify -format '%x\n' $1
+}
+alias dpi=getImageResolution
+
+makeSquare()
+{
+    convert $1 -gravity center -crop `identify -format "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" $1` +repage $(name $1)_square.jpg
+}
+alias square=makeSquare
+
+javaCompileRun()
+{
+    #$1 = file
+    f="$(name $1)"
+    javac $1
+    java $f $f.class
+}
+alias j=javaCompileRun
+
+moveAndMakeDirectory()
+{
+    # args=${@%/}
+    folder=${@: -1}
+    folder=${folder%/}
+    mkdir $folder
+
+    files=""
+    for f in $@; do
+        files=$files"\n"$f
+    done
+    files=$(echo $files | tail -n +2 | ghead -n -1)
+    while read -r f; do
+        mv $f $folder/$f
+    done <<< "$files"
+}
+alias mvm=moveAndMakeDirectory
 
 # find / -iname "term" 2>&1 | grep -v "denied"
 # convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf

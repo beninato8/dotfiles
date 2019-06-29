@@ -1,17 +1,25 @@
 source $HOME/.aliases
+source $HOME/.friends
+source $HOME/.vars
 save_aliases=$(alias -L)
+setopt nocaseglob
+setopt nullglob
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/opt/python@2/libexec/bin:/usr/local/opt/python@2/bin:$PATH
+# export PATH=/usr/local/opt/python@2/libexec/bin:/usr/local/opt/python@2/bin:$PATH
 # export PATH=~/Library/Python/2.7/bin:$PATH
 # export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/dotfiles:$PATH
 export PATH=$HOME/bin:$PATH
-export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin:$PATH
-export PATH=/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
+
+# echo $PATH
+# export PATH=/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin:$PATH
+# export PATH=/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export NLTK_DATA=/usr/local/share/
 
 # Path to your oh-my-zsh installation.
@@ -23,7 +31,6 @@ DISABLE_UPDATE_PROMPT=true
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
-
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -170,3 +177,6 @@ case ":$PATH:" in
   *":$new_entry:"*) :;; # already there
   *) PATH="$new_entry:$PATH";; # or PATH="$PATH:$new_entry"
 esac
+export LSCOLORS="GxfxcxdxbxegedabagGxGx"
+
+eval $(thefuck --alias n)
