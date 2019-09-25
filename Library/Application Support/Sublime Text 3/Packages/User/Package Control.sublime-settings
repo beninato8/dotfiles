@@ -17,6 +17,7 @@
 		"GhostText",
 		"GitGutter",
 		"Hover Image Preview",
+		"Indent XML",
 		"lispindent",
 		"MarkdownLivePreview",
 		"MarkdownPreview",
@@ -25,9 +26,11 @@
 		"Origami",
 		"Package Control",
 		"PackageResourceViewer",
+		"Pretty JSON",
 		"Pylinter",
 		"Rainbowth",
 		"SublimeREPL",
+		"Terminal",
 		"Trimmer"
 	]
 }
