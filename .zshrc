@@ -10,11 +10,13 @@ setopt nullglob
 # export PATH=~/Library/Python/2.7/bin:$PATH
 # export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=/Applications/Xcode.app/Contents/Developer/usr/bin/:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/dotfiles:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/opt/ruby/bin:$PATH
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 
 # echo $PATH
@@ -155,11 +157,14 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='073'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=4
 
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_DELIMITER='..'
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
-# POWERLEVEL9K_SHORTEN_DELIMITER='...'
+POWERLEVEL9K_CUSTOM_BETTER_PATH='~/bin/better_path'
+POWERLEVEL9K_CUSTOM_BETTER_PATH_BACKGROUND='blue'
+
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_DIR_PATH_ABSOLUTE="false"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=".."
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_right"
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_TIME_BACKGROUND="blue"
@@ -168,7 +173,7 @@ POWERLEVEL9K_TIME_BACKGROUND="blue"
 POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs custom_now_playing)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator custom_better_path)
 export DEFAULT_USER="$USER"
 
 # unalias -m '*'
@@ -179,4 +184,5 @@ case ":$PATH:" in
 esac
 export LSCOLORS="GxfxcxdxbxegedabagGxGx"
 
-eval $(thefuck --alias n)
+eval $(thefuck --alias tf)
+eval "$(pyenv init -)"
