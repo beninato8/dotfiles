@@ -106,11 +106,12 @@ alias u='unzip *.zip'
 alias storage="df -h | head -2 | tail -1 | awk '{print \$4}'"
 alias free=storage
 
-alias update='brew-all && pip-upgrade'
+alias update='brew-all && pyenv-update'
 
-alias empty='trash -ey'
+alias empty='trash -ey;free'
 
 alias mvs='globs; unzip *.zip && rename-subs; mkdir subs; for f in *.srt; do nohi $f; mv $f subs; done; rm *addic7ed*'
+alias mmvs='mvs; sleep 2; mv subs/* .; rm -r subs; rm *.zip; r movie; vlc *'
 
 alias reboot_sound="sudo kill $(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
 
@@ -127,6 +128,10 @@ alias viz='~/bin/battery_cycles_visualizer; ~/bin/battery_health_visualizer'
 alias ss='mkdir subs; for f in *.mkv; do subs $f; done; for f in *.srt; do mv $f subs; done;'
 alias ss2='mkdir subs; for f in *.mkv; do subs $f; done; for f in *.srt; do mv $f subs; done;'
 alias ss3='mkdir subs; for f in *.mkv; do subs $f 3; done; for f in *.srt; do mv $f subs; done;'
+
+alias exts="find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort -u"
+
+alias pngcrush='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush'
 
 gitNewRepo()
 {
@@ -158,7 +163,7 @@ alias gpl="git pull"
 alias gps="git push"
 alias gph="git push"
 alias gpsh="git push"
-alias gurl="echo ${$(git config remote.origin.url)%.*}"
+alias gurl="z; echo ${$(git config remote.origin.url)%.*}"
 # alias gopen="open $(gurl)/tree/master${$(`pwd`)#*2}"
 # alias gbrowser="gopen"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
@@ -167,6 +172,16 @@ alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; do
 alias gdiff='git diff'
 alias gd='git diff'
 alias git-email="git log --format='%ae' | uniq"
+
+yadmCommit()
+{
+    yadm commit -m "$(echo $@)"
+}
+alias yc="yadmCommit"
+alias ya="yadm add"
+alias ys="yadm status"
+alias yps="yadm push"
+
 
 makeNewFile()
 {
@@ -214,7 +229,7 @@ goToNewFolder()
     cd $1
 }
 # alias d=goToNewFolder
-alias gmkdir=goToNewFolder
+alias md=goToNewFolder
 
 runPython()
 {
@@ -386,6 +401,18 @@ getImageDimension()
 }
 alias imgdim=getImageDimension
 
+getImageWidth()
+{
+    identify -format "%w" $1
+}
+alias width=getImageWidth
+
+getImageHeight()
+{
+    identify -format "%h" $1
+}
+alias height=getImageHeight
+
 getImageResolution()
 {
     identify -format '%x\n' $1
@@ -396,7 +423,18 @@ makeSquare()
 {
     convert $1 -gravity center -crop `identify -format "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" $1` +repage $(name $1)_square.jpg
 }
-alias square=makeSquare
+alias square_crop=makeSquare
+
+squarize()
+{
+    pic=$1
+    convert $pic -trim $pic
+    width=$(identify -format "%w" $pic)
+    height=$(identify -format "%h" $pic)
+    new_dim=$((width > height ? width+10 : height+10))
+    convert $pic -gravity center -extent "${new_dim}x${new_dim}" $(name $pic).$(ext $pic)
+}
+alias square=squarize
 
 javaCompileRun()
 {
@@ -424,6 +462,61 @@ moveAndMakeDirectory()
     done <<< "$files"
 }
 alias mvm=moveAndMakeDirectory
+
+countFiles()
+{
+    \ls $1 | wc -l
+}
+alias count=countFiles
+
+splitImageVertically()
+{
+    mkdir split
+    img="$1"
+    size=$(echo "100/$2" | bc)
+
+    convert -crop $size%x100% +repage "$img" "split/$(name $img)_%d.$(ext $img)"
+}
+alias split=splitImageVertically
+
+splitMulti()
+{
+    num=2
+    if [[ $1 ]]; then
+        num="$1"
+    fi
+    for f in *.{jpg,png}; do 
+        split "$f" $num; 
+    done
+}
+alias splitall='splitMulti'
+
+cropToSquare()
+{
+    side=256
+    if [[ $2 ]]; then
+        side="$2"
+    fi
+    convert -define jpeg:size="$side"x"$side" "$1" -thumbnail "$side"x"$side"^ -gravity center -extent "$side"x"$side" "$1"
+}
+alias mkth=cropToSquare
+
+expandToSquare()
+{
+    color=white
+    if [[ $2 ]]; then
+        color="$2"
+    fi
+    convert $1 \( +clone -rotate 90 +clone -mosaic +level-colors "$color" \) +swap -gravity center -composite $1
+}
+alias expsq=expandToSquare
+
+openTensorboard()
+{
+    open "http://localhost:6006/#images"
+    tensorboard "$@"
+}
+alias tensorboard=openTensorboard
 
 # find / -iname "term" 2>&1 | grep -v "denied"
 # convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf
