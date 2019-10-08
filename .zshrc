@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-EDITOR='subl'; export EDITOR
+EDITOR='/usr/local/bin/vim'; export EDITOR
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
