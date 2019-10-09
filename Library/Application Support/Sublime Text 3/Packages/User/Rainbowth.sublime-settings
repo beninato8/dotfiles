@@ -2,7 +2,7 @@
   "languages": ["lisp", "scheme", "clojure", "clojurescript", "hylang"],
   "palettes":
   {
-    "default": ["#FF99B5", "#FFB999", "#F9E995", "#91F2A6", "#99E3FF", "#99AAFF", "#BC99FF"],
+    "default": ["#D8E8F6", "#FF99B5", "#FFB999", "#F9E995", "#91F2A6", "#99E3FF", "#99AAFF", "#BC99FF"],
     // "default": ["#FFB2C8", "#FFCAB2", "#F9EDAE", "#A9F2B9", "#BFEEFF", "#BCC7FF", "#D5BFFF"],
     "Original": ["red", "orange", "yellow", "green", "blue", "indigo", "violet"],
     "Tomorrow Night": ["#c66", "#de935f", "#ee6", "#b5bd68", "#81a2be", "#b294bb", "#ff69b4", "#8a2be2"],
@@ -13,9 +13,11 @@
   // Enables custom pre- and suffixes. Currently only single character 'fixes.
   "custom_signs": 
   {
-    "enabled": false,
+    "enabled": true,
     // Note: Characters cannot appear in both the prefix and the suffix (Which only makes sense, doesn't it?)
-    "prefix": "({[",
-    "suffix": ")}]"
+    "prefix": "(",
+    // "prefix": "([{",
+    "suffix": ")",
+    // "suffix": ")]}"
   }    
 }
