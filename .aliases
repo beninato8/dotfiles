@@ -154,6 +154,14 @@ gitCommit()
     git commit -m "$(echo $@)"
 }
 alias gc="gitCommit"
+
+gitAddCommitPush()
+{
+    echo $1
+    echo "${@:2}"
+}
+alias gg='gitAddCommitPush'
+
 alias gmv="git mv -k"
 alias ga="git add"
 alias gaa="git add -A"  
