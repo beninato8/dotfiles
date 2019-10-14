@@ -157,8 +157,15 @@ alias gc="gitCommit"
 
 gitAddCommitPush()
 {
-    echo $1
-    echo "${@:2}"
+    if ((${#*[@]} > 1)); then
+        git add "$1"
+        gc ${@:2}
+        git push
+    else
+        echo "Not enough arguments in \"$@\""
+    fi
+
+    
 }
 alias gg='gitAddCommitPush'
 
