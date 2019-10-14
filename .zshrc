@@ -136,6 +136,9 @@ POWERLEVEL9K_CUSTOM_NOW_PLAYING_FOREGROUND='black'
 POWERLEVEL9K_CUSTOM_SPACE='~/bin/space'
 POWERLEVEL9K_CUSTOM_SPACE_BACKGROUND='blue'
 
+POWERLEVEL9K_CUSTOM_TIME='~/bin/space'
+POWERLEVEL9K_CUSTOM_SPACE_BACKGROUND='blue'
+
 # Disable dir/git icons
 POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
@@ -167,12 +170,13 @@ POWERLEVEL9K_SHORTEN_DELIMITER=".."
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_right"
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_TIME_BACKGROUND="blue"
+POWERLEVEL9K_TIME_BACKGROUND="black"
+POWERLEVEL9K_TIME_FOREGROUND="white"
 
 
 POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs custom_now_playing)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time status command_execution_time vcs custom_now_playing)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator custom_better_path)
 export DEFAULT_USER="$USER"
 
@@ -186,3 +190,5 @@ export LSCOLORS="GxfxcxdxbxegedabagGxGx"
 
 eval $(thefuck --alias tf)
 eval "$(pyenv init -)"
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# export $ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlighting/highlighters/"
