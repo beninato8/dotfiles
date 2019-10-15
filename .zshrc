@@ -176,7 +176,7 @@ POWERLEVEL9K_TIME_FOREGROUND="white"
 
 POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time status command_execution_time vcs custom_now_playing)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time vcs custom_now_playing time)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator custom_better_path)
 export DEFAULT_USER="$USER"
 
