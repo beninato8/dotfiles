@@ -134,6 +134,8 @@ alias exts="find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort -u"
 alias pngcrush='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush'
 alias vv='vlc *.{mkv,mp4}'
 
+alias com="~/bin/commits.py"
+
 gitNewRepo()
 {
     #$1 = repo name
@@ -197,7 +199,7 @@ alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
 alias yps="yadm push"
-
+alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m sublime; yadm push"
 
 makeNewFile()
 {
