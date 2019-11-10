@@ -198,7 +198,7 @@ yadmCommit()
 alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
-alias yps="yadm push"
+alias yps="yadm push; ~/b/commits_out"
 alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m sublime; yadm push"
 
 makeNewFile()
