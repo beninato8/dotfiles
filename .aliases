@@ -164,6 +164,7 @@ gitAddCommitPush()
         git add "$1"
         gc ${@:2}
         git push
+        commits_out
     else
         echo "Not enough arguments in \"$@\""
     fi
@@ -181,9 +182,8 @@ alias gpl="git pull"
 alias gps="git push; ~/b/commits_out"
 alias gph="gps"
 alias gpsh="gps"
-alias gurl="z; echo ${$(git config remote.origin.url)%.*}"
-# alias gopen="open $(gurl)/tree/master${$(`pwd`)#*2}"
-# alias gbrowser="gopen"
+alias gopen="git open"
+alias gbrowser="gopen"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
 alias git-clean='git gc --prune=now --aggressive'
 alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; done'
@@ -199,7 +199,7 @@ alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
 alias yps="yadm push; ~/b/commits_out"
-alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m sublime; yadm push"
+alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m sublime; yadm push; commits_out"
 
 makeNewFile()
 {
