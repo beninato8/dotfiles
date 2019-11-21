@@ -106,7 +106,7 @@ alias u='unzip *.zip'
 alias storage="df -h | head -2 | tail -1 | awk '{print \$4}'"
 alias free=storage
 
-alias update='tldr --update && brew-all && pyenv-update'
+alias update='tldr --update && brew-all && pyenv-update && mas upgrade'
 
 alias empty='trash -ey;free'
 
