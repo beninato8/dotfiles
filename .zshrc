@@ -200,3 +200,11 @@ eval $(thefuck --alias tf)
 eval "$(pyenv init -)"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export $ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlighting/highlighters/"
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
+setopt HIST_FIND_NO_DUPS
+
+setopt inc_append_history
+setopt share_history
