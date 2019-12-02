@@ -20,6 +20,7 @@ alias yt="youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias ytdl="youtube-dl"
 alias ytf="ytdl -F"
 alias ytp="ytdl -f 22"
+alias ytmp3="ytdl -f 'bestaudio[ext=m4a]'"
 alias steg='java -jar ~/GitHub/ctfs/tools/steganography/Stegsolve.jar'
 alias nms='nms -a'
 
@@ -109,9 +110,12 @@ alias free=storage
 alias update='tldr --update && brew-all && pyenv-update && mas upgrade'
 
 alias empty='trash -ey;free'
+alias e='empty'
 
 alias mvs='globs; unzip *.zip && rename-subs; mkdir subs; for f in *.srt; do nohi $f; mv $f subs; done; rm *addic7ed*'
 alias mmvs='mvs; sleep 2; mv subs/* .; rm -r subs; rm *.zip; r movie; vlc *'
+alias mtitle='for f in *.mkv; do mkvpropedit "$f" -e info -s title="${f%.*}"; done'
+alias fs='for f in *.mkv; do subs $f; done; mvs; mtitle; vv'
 
 alias reboot_sound="sudo kill $(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
 
@@ -199,7 +203,7 @@ alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
 alias yps="yadm push; ~/b/commits_out"
-alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m sublime; yadm push; commits_out"
+alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime $(date +%Y-%m-%d)\"; yadm push; commits_out"
 
 makeNewFile()
 {
@@ -535,6 +539,13 @@ openTensorboard()
     tensorboard "$@"
 }
 alias tensorboard=openTensorboard
+
+masSearch()
+{
+    mas list | g "$1" | awk '{print $1}'
+}
+alias m=masSearch
+
 
 # find / -iname "term" 2>&1 | grep -v "denied"
 # convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf
