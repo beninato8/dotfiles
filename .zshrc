@@ -1,6 +1,7 @@
 source $HOME/.aliases
 source $HOME/.friends
 source $HOME/.vars
+source $HOME/bin/resources/font-map.sh
 save_aliases=$(alias -L)
 setopt nocaseglob
 setopt nullglob
@@ -128,7 +129,7 @@ EDITOR='/usr/local/bin/vim'; export EDITOR
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
 # Font taken from https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
 
-POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='awesome-mapped-fontconfig'
 
 POWERLEVEL9K_CUSTOM_COMMITS="~/bin/commits_yes"
 POWERLEVEL9K_CUSTOM_COMMITS_BACKGROUND='blue'
