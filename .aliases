@@ -74,14 +74,14 @@ alias w=where
 alias ks="kill -STOP"
 alias kc="kill -CONT"
 
-alias stop="kill -STOP $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+alias stop="kill -STOP \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 alias stahp="stop"
-alias cont="kill -CONT $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
-alias mc="echo $(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+alias cont="kill -CONT \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
+alias mc="echo \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 
-alias clean='brew cleanup -s --prune=0 $(brew list | grep -v ^python$) $(brew cask list)'
+alias clean='brew cleanup -s --prune=0 \$(brew list | grep -v ^python$) \$(brew cask list)'
 
-alias please='sudo $(fc -ln -1)'
+alias please='sudo \$(fc -ln -1)'
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
@@ -107,7 +107,7 @@ alias u='unzip *.zip'
 alias storage="df -h | head -2 | tail -1 | awk '{print \$4}'"
 alias free=storage
 
-alias update='tldr --update && brew-all && pyenv-update && mas upgrade'
+alias update='tldr --update && brew-all && pyenv-update'
 
 alias empty='trash -ey;free'
 alias e='empty'
@@ -117,14 +117,14 @@ alias mmvs='mvs; sleep 2; mv subs/* .; rm -r subs; rm *.zip; r movie; vlc *'
 alias mtitle='for f in *.mkv; do mkvpropedit "$f" -e info -s title="${f%.*}"; done'
 alias fs='for f in *.mkv; do subs $f; done; mvs; mtitle; vv'
 
-alias reboot_sound="sudo kill $(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
+alias reboot_sound="sudo kill \$(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
 
 alias aria2c='aria2c --file-allocation=none -d ~/Desktop/yt'
 alias dl='aria2c'
 
 alias ad="addic7ed search"
 
-alias po='vlc -f --rate 1 "$(\ls | sort -R | tail -1)"'
+alias po='vlc -f --rate 1 "\$(\ls | sort -R | tail -1)"'
 
 alias v='cd ~/v'
 alias viz='~/bin/battery_cycles_visualizer; ~/bin/battery_health_visualizer'
@@ -139,6 +139,9 @@ alias pngcrush='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.pl
 alias vv='vlc *.{mkv,mp4}'
 
 alias com="~/bin/commits.py"
+
+alias pcon="piactl connect"
+alias pdis="piactl disconnect"
 
 gitNewRepo()
 {
@@ -203,7 +206,7 @@ alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
 alias yps="yadm push; ~/b/commits_out"
-alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc $(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases $(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime $(date +%Y-%m-%d)\"; yadm push; commits_out"
+alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc \$(date +%Y-%m-%d)\"; yadm add ~/.aliases; yadm commit -m \".aliases \$(date +%Y-%m-%d)\"; yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; yadm push; commits_out"
 
 makeNewFile()
 {
