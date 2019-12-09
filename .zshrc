@@ -2,6 +2,7 @@ source $HOME/.aliases
 source $HOME/.friends
 source $HOME/.vars
 source $HOME/bin/resources/font-map.sh
+source $HOME/GitHub/credentials/git-tokens
 save_aliases=$(alias -L)
 setopt nocaseglob
 setopt nullglob
@@ -131,6 +132,14 @@ EDITOR='/usr/local/bin/vim'; export EDITOR
 
 POWERLEVEL9K_MODE='awesome-mapped-fontconfig'
 
+POWERLEVEL9K_CUSTOM_PIA_ON="~/bin/pia-on"
+POWERLEVEL9K_CUSTOM_PIA_ON_BACKGROUND='black'
+POWERLEVEL9K_CUSTOM_PIA_ON_FOREGROUND='green'
+
+POWERLEVEL9K_CUSTOM_PIA_OFF="~/bin/pia-off"
+POWERLEVEL9K_CUSTOM_PIA_OFF_BACKGROUND='black'
+POWERLEVEL9K_CUSTOM_PIA_OFF_FOREGROUND='red'
+
 POWERLEVEL9K_CUSTOM_COMMITS="~/bin/commits_yes"
 POWERLEVEL9K_CUSTOM_COMMITS_BACKGROUND='blue'
 POWERLEVEL9K_CUSTOM_COMMITS_FOREGROUND='black'
@@ -185,9 +194,25 @@ POWERLEVEL9K_TIME_FOREGROUND="white"
 
 
 POWERLEVEL9K_STATUS_VERBOSE=false
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs custom_commits custom_no_commits custom_now_playing time)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator custom_better_path)
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\ue0b0"
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( 
+                                    custom_commits 
+                                    custom_no_commits 
+                                    custom_now_playing 
+                                    time 
+                                    custom_pia_on 
+                                    custom_pia_off
+)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator 
+                                   custom_better_path
+                                   vcs
+                                   newline
+                                   custom_space
+)
 export DEFAULT_USER="$USER"
 
 # unalias -m '*'
