@@ -81,7 +81,7 @@ alias mc="echo \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\
 
 alias clean='brew cleanup -s --prune=0 \$(brew list | grep -v ^python$) \$(brew cask list)'
 
-alias please='sudo \$(fc -ln -1)'
+alias please="sudo \$(fc -ln -1)"
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
@@ -140,7 +140,7 @@ alias vv='vlc *.{mkv,mp4}'
 
 alias com="~/bin/commits.py"
 
-alias pcon="piactl connect"
+alias pcon="piactl connect; sleep 5 &|; z"
 alias pdis="piactl disconnect"
 
 gitNewRepo()
