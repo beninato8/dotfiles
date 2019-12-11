@@ -200,8 +200,6 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\ue0b0"
 # POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( 
-                                    custom_commits 
-                                    custom_no_commits 
                                     custom_now_playing 
                                     time 
                                     custom_pia_on 
@@ -210,6 +208,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator 
                                    custom_better_path
                                    vcs
+                                   custom_commits 
+                                   custom_no_commits 
                                    newline
                                    custom_space
 )
