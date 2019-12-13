@@ -143,6 +143,8 @@ alias com="~/bin/commits.py"
 alias pcon="piactl connect; sleep 5 &|; z"
 alias pdis="piactl disconnect"
 
+alias k="open ~/.config/karabiner/karabiner.json"
+
 gitNewRepo()
 {
     #$1 = repo name
