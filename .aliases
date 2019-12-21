@@ -86,7 +86,7 @@ alias please="sudo \$(fc -ln -1)"
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
 alias nompv='brew uninstall --force --ignore-dependencies mpv'
-alias brew-all='brew update; brew upgrade; nompv; brew cask upgrade; brew cask doctor; brew doctor; clean'
+alias brew-all='brew update; brew upgrade; nompv; brew cask upgrade --greedy; brew cask doctor; brew doctor; clean'
 
 alias termdown='termdown -W'
 alias t='termdown'
