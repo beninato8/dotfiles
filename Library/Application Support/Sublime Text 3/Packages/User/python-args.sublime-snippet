@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+import sys
+
+args = sys.argv
+if len(args) < 2:
+    print("${1:Needs at least one argument}")
+    exit()
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>aargs</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope>
+    <description>shebang</description>
+</snippet>
