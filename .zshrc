@@ -21,6 +21,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 export JFX=$HOME/Library/Java/javafx-sdk-11.0.2/lib/
+export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 # echo $PATH
 # export PATH=/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin:$PATH
