@@ -5,6 +5,7 @@
 
 alias exp="echo \"mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}\""
 
+alias sudo="sudo "
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
