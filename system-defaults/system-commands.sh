@@ -4,6 +4,9 @@
 # Always boot in verbose mode (show terminal instead of loading bar)
 sudo nvram boot-args="-v"
 
+# Charging chime
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app
+
 # Always show scroll bars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
