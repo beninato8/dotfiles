@@ -211,7 +211,7 @@ alias ys="yadm status"
 alias yps="yadm push; ~/b/commits_out"
 alias yy="yadm add ~/.zshrc; yadm commit -m \".zshrc \$(date +%Y-%m-%d)\"; \
           yadm add ~/.aliases; yadm commit -m \".aliases \$(date +%Y-%m-%d)\"; \
-          yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; 
+          yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; \
           yadm add ~/system-defaults/*; yadm commit -m \"system-defaults \$(date +%Y-%m-%d)\"; \
           yadm push; commits_out"
 
