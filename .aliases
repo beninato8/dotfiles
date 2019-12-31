@@ -145,6 +145,8 @@ alias pcon="piactl connect; sleep 5 &|; z"
 alias pdis="piactl disconnect"
 
 alias k="open ~/.config/karabiner/karabiner.json"
+alias downloads='netstat -i -I en0 -b | head -2 | tail -1 | awk '\''{ print $7 /1024/1024/1024 }'\'
+alias uploads='netstat -i -I en0 -b | head -2 | tail -1 | awk '\''{ print $10 /1024/1024/1024 }'\'
 
 gitNewRepo()
 {
