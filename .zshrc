@@ -1,31 +1,17 @@
 source $HOME/.aliases
 source $HOME/.friends
 source $HOME/.vars
+source $HOME/.path
 source $HOME/bin/resources/font-map.sh
 source $HOME/GitHub/credentials/git-tokens
+source $HOME/.path
 save_aliases=$(alias -L)
 setopt nocaseglob
 setopt nullglob
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=/usr/local/opt/python@2/libexec/bin:/usr/local/opt/python@2/bin:$PATH
-# export PATH=~/Library/Python/2.7/bin:$PATH
-# export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin
-export PATH=/usr/local/opt/ruby/bin:$PATH
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
-export PATH=/Applications/Xcode.app/Contents/Developer/usr/bin/:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/dotfiles:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-
 export JFX=$HOME/Library/Java/javafx-sdk-11.0.2/lib/
 export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
-# echo $PATH
-# export PATH=/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin:$PATH
-# export PATH=/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export NLTK_DATA=/usr/local/share/
 
 # Path to your oh-my-zsh installation.
@@ -201,7 +187,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\ue0b0"
 # POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( 
-                                    custom_now_playing 
+                                    # custom_now_playing 
                                     time 
                                     custom_pia_on 
                                     custom_pia_off
@@ -222,17 +208,23 @@ case ":$PATH:" in
   *":$new_entry:"*) :;; # already there
   *) PATH="$new_entry:$PATH";; # or PATH="$PATH:$new_entry"
 esac
-export LSCOLORS="GxfxcxdxbxegedabagGxGx"
+# export LSCOLORS="b"
 
 eval $(thefuck --alias tf)
 eval "$(pyenv init -)"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# export $ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$(brew --prefix)/share/zsh-syntax-highlighting/highlighters/"
+export CLICOLOR=1;
+
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 setopt HIST_FIND_NO_DUPS
-
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+# setopt SHARE_HISTORY
 setopt inc_append_history
-setopt share_history
+
+eval $(gdircolors -b $HOME/.dircolors)
