@@ -1,0 +1,1 @@
+{"description": "Native ZSH autocompletion and snippets for sublime text", "version": "0.1.1", "url": "https://github.com/molovo/sublime-zsh", "dependencies": [], "sublime_text": "*", "platforms": ["*"]}

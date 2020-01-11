@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[
+from subprocess import Popen, PIPE
+
+def shell(cmd):
+    out, err = Popen(cmd, shell=True, executable='/usr/local/bin/zsh', stdout=PIPE).communicate()
+    return out.decode('utf8').strip()
+
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>cmd</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope>
+    <description>shell command</description>
+</snippet>

@@ -1,7 +1,8 @@
 {
   // "cmd": ["/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin/python3.7", "$file"], 
-  "cmd": ["/usr/local/bin/python3", "$file"], 
+  "shell_cmd": "/usr/bin/env python3 \"${file}\"",
   "selector": "source.python", 
   "file_regex": "file \"(...*?)\", line ([0-9]+)",
   "env": {"PYTHONIOENCODING": "utf8"},
+  "working_dir": "${file_path}",
 }

@@ -14,9 +14,10 @@
 		"Enhanced Clojure",
 		"ExportHtml",
 		"FindKeyConflicts",
+		"Fix Mac Path",
 		"GhostText",
 		"GitGutter",
-		"Hover Image Preview",
+		"ImagePreview",
 		"Indent XML",
 		"lispindent",
 		"MarkdownLivePreview",
@@ -27,11 +28,13 @@
 		"Package Control",
 		"PackageResourceViewer",
 		"Pretty JSON",
+		"PyenvEnv",
 		"Pylinter",
 		"Rainbowth",
 		"SublimeREPL",
 		"Terminal",
 		"Trimmer",
-		"x86 and x86_64 Assembly"
+		"x86 and x86_64 Assembly",
+		"ZSH"
 	]
 }
