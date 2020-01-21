@@ -38,7 +38,7 @@ alias du='du -sch'
 alias size="globs;\du -sch * .* | gsort -h"
 # alias du='du -sch .[!.]* *'
 
-alias z='exec zsh'
+alias ez='exec zsh'
 alias a='subl ~/.aliases'
 alias zz='subl ~/.zshrc'
 

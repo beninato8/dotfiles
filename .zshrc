@@ -76,6 +76,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   git-open
   chucknorris
+  zsh-autosuggestions
+  osx
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -212,7 +214,9 @@ esac
 
 eval $(thefuck --alias tf)
 eval "$(pyenv init -)"
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval $(gdircolors -b $HOME/.dircolors)
+source "$(brew --prefix)/etc/profile.d/z.sh"
+
 export CLICOLOR=1;
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -227,4 +231,4 @@ setopt HIST_SAVE_NO_DUPS
 # setopt SHARE_HISTORY
 setopt inc_append_history
 
-eval $(gdircolors -b $HOME/.dircolors)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
