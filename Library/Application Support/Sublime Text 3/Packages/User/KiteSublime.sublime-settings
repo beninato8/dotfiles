@@ -1,5 +1,5 @@
 {
 	"show_help_dialog": false,
 	"show_keyword_arguments": true,
-	"show_popular_patterns": false
+	"show_popular_patterns": true
 }
