@@ -229,6 +229,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_SAVE_NO_DUPS
 # setopt SHARE_HISTORY
-setopt inc_append_history
+setopt INC_APPEND_HISTORY
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
