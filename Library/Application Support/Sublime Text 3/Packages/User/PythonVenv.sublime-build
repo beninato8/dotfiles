@@ -1,0 +1,7 @@
+{
+  "shell_cmd": "../env/bin/python \"${file}\"",
+  "selector": "source.python", 
+  "file_regex": "file \"(...*?)\", line ([0-9]+)",
+  "env": {"PYTHONIOENCODING": "utf8"},
+  "working_dir": "${file_path}",
+}

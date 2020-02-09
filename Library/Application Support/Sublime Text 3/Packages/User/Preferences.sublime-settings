@@ -10,6 +10,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"ExportHtml",
 		"Pylinter",
 		"Vintage"
 	],
