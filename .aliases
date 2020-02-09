@@ -148,6 +148,7 @@ alias downloads='netstat -i -I en0 -b | head -2 | tail -1 | awk '\''{ print $7 /
 alias uploads='netstat -i -I en0 -b | head -2 | tail -1 | awk '\''{ print $10 /1024/1024/1024 }'\'
 
 alias G='cd ~/Github/'
+alias events="icalBuddy -f 'eventsToday'"
 gitNewRepo()
 {
     #$1 = repo name

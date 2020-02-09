@@ -4,7 +4,6 @@ source $HOME/.vars
 source $HOME/.path
 source $HOME/bin/resources/font-map.sh
 source $HOME/GitHub/credentials/git-tokens
-source $HOME/.path
 save_aliases=$(alias -L)
 setopt nocaseglob
 setopt nullglob
@@ -78,9 +77,13 @@ plugins=(
   chucknorris
   zsh-autosuggestions
   osx
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
+
+ZSH_THEME_VIRTUALENV_PREFIX="("
+ZSH_THEME_VIRTUALENV_SUFFIX=")"
 
 # User configuration
 
@@ -181,7 +184,6 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND="white"
 
-
 POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
@@ -197,6 +199,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator 
                                    custom_better_path
                                    vcs
+                                   virtualenv
                                    custom_commits 
                                    custom_no_commits 
                                    newline
