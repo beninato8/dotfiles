@@ -124,7 +124,7 @@ alias dl='aria2c'
 
 alias ad="addic7ed search"
 
-alias po='vlc -f --rate 1 "\$(\ls | sort -R | tail -1)"'
+alias po='vlc -f --rate 1 -Z *'
 
 alias v='cd ~/v'
 alias viz='~/bin/battery_cycles_visualizer; ~/bin/battery_health_visualizer'
@@ -205,6 +205,7 @@ alias gd='git diff'
 alias git-email="git log --format='%ae' | gsort | uniq"
 alias gfpl='git fetch upstream; git checkout master; git merge upstream/master'
 alias gfps='git push origin master --force'
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an %ae>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
 
 yadmCommit()
 {
