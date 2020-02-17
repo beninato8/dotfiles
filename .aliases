@@ -464,7 +464,7 @@ alias dpi=getImageResolution
 
 makeSquare()
 {
-    convert $1 -gravity center -crop `identify -format "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" $1` +repage $(name $1)_square.jpg
+    convert $1 -gravity center -crop `identify -format "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" $1` +repage $(name $1)_square.$(ext $1)
 }
 alias square_crop=makeSquare
 
