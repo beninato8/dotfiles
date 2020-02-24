@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import os
+import re
+
+def to_ascii(text):
+    nums = list(range(32, 128)) + [9, 10]
+    return ''.join([x if ord(x) in nums else ' ' for x in text])
+
+home = os.getenv("HOME")
+
+with open(f'{home}/Library/StickiesDatabase', 'r', encoding='ascii', errors='replace') as f:
+    text = to_ascii(f.read())
+    # print(text)
+    office = re.search(r'office: [sS](\d+)[eE](\d+)', text)
+    episode = f'S{office.group(1)}E{int(office.group(2))+1}'
+    print(episode)

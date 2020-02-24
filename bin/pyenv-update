@@ -1,0 +1,14 @@
+#!/usr/local/bin/zsh
+
+cd ~/GitHub/pyenv-update
+pyenv versions | grep -o "\d\+.\d\+.\d\+" | while read f; do 
+    echo "*************************************"
+    echo "*               $f               *"
+    echo "*************************************"
+    pyenv local $f
+    eval "$(pyenv init -)"
+    pip-upgrade
+    # exit 1
+done
+# ls
+# pwd

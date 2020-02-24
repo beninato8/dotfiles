@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('~/.data/battery_cycles_uniq.csv', header=None, names=['time','cycles'])
+data.time = pd.to_datetime(data['time'], format='%Y-%m-%d')
+data.set_index(['time'],inplace=True)
+data.plot()
+
+days = (data.index[-1] - data.index[0])
+days = days.days
+cycles = (data['cycles'][-1] - data['cycles'][0])
+
+# print(days)
+# print(cycles)
+plt.title(f'{cycles/days:.2f} cycles per day')
+# design = 6559
+# loss = cycles/design
+# print(design/cycles)
+# print(f'{loss/days:.4f}% of max capacity lost per day')
+# print(days, cycles)
+plt.show()

@@ -1,0 +1,9 @@
+echo "nmap -p port <ip> (your port)
+nmap -p- port <ip> (every port [2^16])
+nmap 10.0.0.*
+namp 10.0.0.10-100
+nmap <ip> -sn (only ips, not ports)
+nmap <ip> -T# (higher # is faster [0-5])
+nmap <ip> -sV (info about port)
+nmap <ip> -A (tries to find out more info about machine [OS, etc])"
+#sudo nmap 

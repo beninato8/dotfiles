@@ -1,0 +1,4 @@
+d=$(dirname "$0")
+
+$d/battery_health
+$d/battery_cycles

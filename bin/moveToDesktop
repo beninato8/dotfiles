@@ -1,0 +1,19 @@
+#!/bin/zsh
+sleep 1
+echo running
+setopt nocaseglob
+setopt nullglob
+for i in ~/Downloads/*.heic; do
+    [ -f "$i" ] || break
+    export PATH=/usr/local/bin:$PATH
+    convert "$i" ${i[0,-5]}jpeg
+    rm $i
+done
+echo converted
+sleep 1
+for i in ~/Downloads/*; do
+    [ -f "$i" ] || break
+    echo $i
+    mv "$i" ~/Desktop
+done
+echo done

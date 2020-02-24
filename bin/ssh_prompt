@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then 
+    echo "$USER@$HOST"; 
+else 
+    # echo no; 
+fi

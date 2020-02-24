@@ -1,0 +1,74 @@
+#!/usr/local/bin/python3
+
+import os
+import re
+
+try:
+    path = os.getcwd()
+except Exception as e:
+    print("DElETED DIR")
+    exit()
+
+home = os.environ['HOME']
+
+path = re.sub(home, '~', path)
+
+if len(path) < 32:
+    print(path)
+    exit()
+
+def clear_junk(segment):
+    patterns = [r'www.Torrenting.org +',
+               r'Crazy4TV.com[ -]+']
+    for x in patterns:
+        segment = re.sub(x, '', segment, flags=re.I)
+    segment = re.sub(r'\.', ' ', segment, flags=re.I)
+
+    return segment
+
+def shorten(path):
+    small_seg = 5
+    while len('/'.join(path)) >= 32:
+        for i, x in enumerate(path[:-1]):
+            if x != '~':
+                path[i] = x[:small_seg]
+            if len('/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]])) < 32:
+                print('/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]]))
+                exit()
+        small_seg -= 1
+        if small_seg == 0:
+            break
+    return path
+
+path = path.split('/')
+path = [clear_junk(x) for x in path]
+
+path = shorten(path)
+
+# print('directory meets requirements')
+path = os.getcwd()
+path = re.sub(home, '~', path)
+path = path.split('/')
+path = [clear_junk(x) for x in path]
+
+
+top = path[-1]
+top = re.split(r'[ \.]', top)
+
+max_top = len(top)
+for i,x in enumerate(top):
+    if re.search('( - )|S\d+|(Complete)? ?Season.*|\(.*|((19|20)\d{2})', x):
+        max_top = i
+top = ' '.join(top[:max_top])
+
+path[-1] = top
+# print(top)
+path = shorten(path)
+
+
+if len('/'.join(path)) < 48:
+    print('/'.join(path))
+    exit()
+
+disp = '/'.join(path)
+print(disp[:45] + '...')

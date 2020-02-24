@@ -1,0 +1,19 @@
+#!/usr/local/bin/zsh
+
+archives_path=$HOME/"Library/Developer/Xcode/Archives"
+derived_data_path=$HOME/"Library/Developer/Xcode/DerivedData"
+simulator_data_path=$HOME/"Library/Developer/CoreSimulator/Devices"
+simulator_cache_path=$HOME/"Library/Developer/CoreSimulator/Caches"
+device_support_path=$HOME/"Library/Developer/Xcode/iOS DeviceSupport"
+cache=$HOME/"Library/Caches/com.apple.dt.Xcode"
+
+
+rm -r "$archives_path"
+rm -r "$derived_data_path"
+rm -r "$simulator_data_path"
+rm -r "$simulator_cache_path"
+rm -r "$device_support_path"
+rm -r "$cache"
+
+trash -ey
+df -h | head -2 | tail -1 | awk '{print $4}'

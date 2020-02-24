@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+if [ $(cat ~/b/cache/commits) != '0' ]; then 
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        echo "\uf09b $(cat ~/b/cache/commits)"
+    fi
+fi

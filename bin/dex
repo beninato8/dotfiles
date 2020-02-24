@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+python3 $HOME/GitHub/pokemon-go/dex-search.py "$@"

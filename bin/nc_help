@@ -1,0 +1,3 @@
+echo "
+nc -vz <ip> 1-1000 2>\&1 | grep succeeded
+"

@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+import random
+import time
+import sys
+import re
+import os
+import string
+
+with open(f'{os.path.dirname(__file__)}/resources/words_alpha.txt') as word_file:
+# with open('/usr/share/dict/words') as word_file:
+    valid_words = set(word_file.read().split())
+    args = sys.argv
+    # print(args[1:])
+    matches = []
+    letters = args[1]
+    counts = {letter:letters.count(letter) for letter in letters}
+    letters_list = list(letters)
+    if '-' not in letters:
+        pattern = re.compile(f'^[{letters}]+$')
+        # print(pattern)
+        for word in valid_words:
+            if all(word.count(letter) <= counts[letter] for letter in letters_list) and pattern.match(word):
+                matches.append(word)
+        matches = sorted(matches, key=len)
+    else:
+        az = string.ascii_lowercase
+        for char in az:
+            if char in letters_list:
+                pat = letters.replace('-', '')
+                counts[char] += 1
+            else:
+                pat = letters.replace('-', '') + char
+            pattern = re.compile(f'^[{pat}]+$')
+            print(pattern)
+            for word in valid_words:
+                if all(word.count(letter) <= counts[letter] for letter in letters_list) and word.count(char) <= counts['-'] and pattern.match(word):
+                    matches.append(word)
+            if char in letters_list:
+                counts[char] -= 1
+        matches = sorted(matches, key=len)
+    if len(args) == 3:
+        matches = [x for x in matches if x[0] == args[2] or x[-1] == args[2]]
+    print('\n'.join(matches))
+    print(' '.join(list(letters)))

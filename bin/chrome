@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import sys
+from selenium import webdriver
+import requests
+
+args = sys.argv
+
+url = ''
+
+if len(args) > 1:
+    url = ''.join(args[1:])
+    if 'http' not in url:
+        url = 'https://' + url 
+    if requests.get(url).status_code != 200:
+        url = ''
+
+chromedriver = '/usr/local/bin/chromedriver'
+browser = webdriver.Chrome(chromedriver)
+browser.get('chrome://newtab')
+
+if url:
+    browser.get(url)

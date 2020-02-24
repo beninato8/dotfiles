@@ -1,0 +1,10 @@
+#!/usr/local/bin/zsh
+
+stat="$(piactl get vpnip)"
+source $HOME/bin/resources/font-map.sh
+
+if [[ ${stat:0:1} == "U" ]]; then
+        if [[ $LC_CTYPE == "en_US.UTF-8" ]]; then
+        echo \\u$CODEPOINT_OF_AWESOME_TOGGLE_OFF
+    fi
+fi

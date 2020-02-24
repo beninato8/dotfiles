@@ -1,0 +1,10 @@
+tell application "System Events"
+    tell process "NotificationCenter"
+        set windowCount to count windows
+        repeat with i from windowCount to 1 by -1
+            if description of image 2 of window i is "SoftU2F" then
+                click button "Approve" of window i
+            end if
+        end repeat
+    end tell
+end tell

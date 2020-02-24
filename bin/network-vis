@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('~/.data/net-down.csv', header=None, names=['time','gb'])
+data.time = pd.to_datetime(data['time'], format='%Y-%m-%d %H:%M:%S')
+data.set_index(['time'],inplace=True)
+ax = data.plot.area()
+ax.set_ylabel('MB')
+
+days = (data.index[-1] - data.index[0])
+days = days.days
+gb = (data['gb'][-1] - data['gb'][0])
+
+# print(days)
+# print(gb)
+plt.title(f'{data["gb"].sum()/1024:.2f} gb dl from {data.index[0]} to {data.index[-1]}')
+# design = 6559
+# loss = gb/design
+# print(design/gb)
+# print(f'{loss/days:.4f}% of max capacity lost per day')
+# print(days, gb)
+
+data = pd.read_csv('~/.data/net-up.csv', header=None, names=['time','gb'])
+data.time = pd.to_datetime(data['time'], format='%Y-%m-%d %H:%M:%S')
+data.set_index(['time'],inplace=True)
+ax = data.plot.area()
+ax.set_ylabel('MB')
+
+days = (data.index[-1] - data.index[0])
+days = days.days
+gb = (data['gb'][-1] - data['gb'][0])
+
+# print(days)
+# print(gb)
+plt.title(f'{data["gb"].sum()/1024:.2f} gb ul from {data.index[0]} to {data.index[-1]}')
+# design = 6559
+# loss = gb/design
+# print(design/gb)
+# print(f'{loss/days:.4f}% of max capacity lost per day')
+# print(days, gb)
+plt.show()

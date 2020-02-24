@@ -1,0 +1,2 @@
+networksetup -setairportpower en0 off
+java -jar $HOME/GitHub/beninato8-P1-PythonML/cyber\ security/web\ exploits/webgoat-server-8.0.0.M12.jar

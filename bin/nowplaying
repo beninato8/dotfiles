@@ -1,0 +1,19 @@
+#! /bin/bash
+# osascript -e 'tell application "iTunes" to if player state is playing then(* artist of current track & " - " & *) name of current track'
+# osascript -e 'tell application "iTunes" to if player state is playing then name of current track'
+# osascript ~/bin/currenttrack.scpt
+osascript -e \
+'tell application "System Events"
+    set ExistingProcs to (name of every process)
+end tell
+
+if (ExistingProcs contains "Music") then
+    --display alert "Process exists"
+    if application "Music" is running then
+        tell application "Music"
+            if player state is playing then
+                return name of current track
+            end if
+        end tell
+    end if
+end if'

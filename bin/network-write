@@ -1,0 +1,36 @@
+#!/usr/local/bin/zsh
+
+current="$1"
+previous="$2"
+file="$3"
+
+if [[ -z $3 ]]; then
+    echo no args
+    exit 1
+fi
+
+lines=$(wc -l $file | awk '{ print $1 }')
+csv=${file%.*}.csv
+now=$(date "+%Y-%m-%d% %H:%M:%S")
+diff_all=$(($current - $previous))
+diff=`printf "%.3f" $diff_all`
+echo $current $previous $file
+
+if (( $diff < 0 )); then
+    echo rebooted
+    echo 0 >> $file
+    exit 1
+fi
+
+if (( $diff == 0.000 )); then
+    echo $diff
+else
+    echo "$now,$diff" >> $csv
+fi
+echo "$current" >> $file
+max_lines=2
+if (( $lines > $max_lines )); then
+    del=$(($lines-$max_lines))
+    echo $del
+    sed -i '' -e "1,$(echo $del)d" $file
+fi

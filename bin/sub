@@ -1,0 +1,21 @@
+#!/bin/zsh
+source $HOME/.aliases
+
+if [[ $@ ]]; then
+    
+else
+    echo "Enter a movie name"
+    return
+fi
+python3 ~/Github/subtitles/subscene.py "$@"
+sleep 2
+setopt nocaseglob
+setopt nullglob
+unzip *.zip
+for f in *.srt; do 
+    nohi $f
+done
+# rename-subs E
+rename-subs movie
+# rm *.zip
+vv

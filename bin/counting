@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+import sys
+import time
+
+args = sys.argv
+
+if len(args) < 2 or not args[1].isdigit():
+    print('Please enter a number to count by')
+    exit()
+ 
+a = int(args[1])
+
+if len(args) > 2:
+    if not args[2].isdigit():
+        print('Please enter a valid starting number')
+        exit()
+    b = int(args[2])
+else:
+    b = 0
+print(a, b )
+if len(args) > 3:
+    if not args[3].isdigit():
+        print('Please enter a valid delay')
+        exit()
+    delay = float(args[3])/1000
+else:
+    delay = .25
+
+n = b
+while True:
+    print(n)
+    n = n + a
+    time.sleep(delay)

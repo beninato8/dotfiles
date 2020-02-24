@@ -1,0 +1,29 @@
+#search and download latest philip defranco video
+
+echo "PDS!"
+python3 -c "import os;os.system('unbuffer mpsyt user sxephil /"$(date +%F)" | tee ~/tmp/mpsyt.txt')"
+echo
+# egrep -o \[a-zA-Z0-9_-\]{11} ~/tmp/mpsyt.txt # | sed -n 2p | sed 's/;$//'
+rgx="$(egrep -o "1   ( ?.+[, ]{0,2}){2,}\d\d" ~/tmp/mpsyt.txt)"
+# echo $rgx
+title=$(ytparse "$rgx" "title")
+url=$(ytparse "$rgx" "url")
+date=$(ytparse "$rgx" "date")
+echo "Title: $title"
+# exit
+if [ "$(date +%m/%d/%y)" == "$date" ]; then
+    echo "(Video uploaded today)"
+else
+    echo "(Video uploaded at: $date (today is $(date +%m/%d/%y), MM/DD/YY)"
+fi
+while true; do
+    read -p "Download it? [y/n] " yn
+    case $yn in
+        [Yy]* ) 
+            # echo "hi"
+            youtube-dl -f 'bestvideo+bestaudio/best/best' $url
+        break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

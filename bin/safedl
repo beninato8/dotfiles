@@ -1,0 +1,6 @@
+stat="$(piactl get vpnip)"
+
+if [[ ${stat:0:1} == "U" ]]; then
+    killall Transmission &>/dev/null
+    pkill -f Popcorn-Time &>/dev/null
+fi

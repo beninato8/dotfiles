@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import random
+import time
+import sys
+import os
+
+with open(f'{os.path.dirname(__file__)}/resources/words_alpha.txt') as word_file:
+    valid_words = set(word_file.read().split())
+    args = sys.argv
+    if len(args) > 1 and args[1].isdigit():
+        print('\n'.join(random.choices(list(valid_words), k=max(1, int(args[1])))))
+    else:
+        print('\n'.join(random.choices(list(valid_words), k=1)))

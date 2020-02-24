@@ -1,0 +1,6 @@
+# ls $HOME
+# d=$(dirname "$(greadlink -f "$0")")
+today=$(date +%F)
+health=$(system_profiler SPPowerDataType | grep "Full Charge" | awk '{print $5}')
+echo "$today,$health" >> ~/.data/battery_health.csv
+awk '!seen[$0]++' ~/.data/battery_health.csv > ~/.data/battery_health_uniq.csv

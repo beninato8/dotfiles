@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+
+import requests
+import sys
+import json
+from subprocess import Popen, PIPE
+from os.path import expanduser
+home = expanduser("~")
+
+# args = sys.argv + ['beninato8']
+args = sys.argv
+if len(args) < 2:
+    print("Needs at least one argument")
+    exit()
+
+def shell(cmd):
+    out, err = Popen(cmd, shell=True, executable='/usr/local/bin/zsh', stdout=PIPE).communicate()
+    return out.decode('utf8').strip()
+
+def lpad(num, big):
+    size = len(str(num))
+    if size < big:
+        return f'{" "*(big-size)}{num}'
+    return num
+
+user = args[1]
+base = 'https://api.github.com/users/{}/repos'
+response = requests.get(base.format(user))
+
+if response.status_code != 200:
+    try:
+        d = json.loads(response.text)
+        print(f"Error: {d['message']}")
+        print('Try searching for any of the following: \n')
+        data = json.loads(requests.get(f'https://api.github.com/search/users?q={user}').text)
+        print('\n'.join(x['login'] for x in data['items']))
+    except Exception as e:
+        print('Error connecting to API')
+    exit()
+
+
+data = json.loads(response.text)
+repos = dict()
+for i, repo in enumerate(data):
+    repos[i] = repo['name']
+
+if len(repos) == 0:
+    print(f'No public repos found for {user}')
+    exit()
+
+big = max(set([len(str(x)) for x in repos.keys()]))
+repo_str = '\n'.join(f'{lpad(k, big)}: {v}' for k,v in repos.items())
+
+print(repo_str)
+print('Select a number')
+try:
+    user_in = int(input())
+except Exception as e:
+    user_in = -1
+while user_in not in repos.keys():
+    print('Please enter a valid number')
+    print(repo_str)
+    try:
+        user_in = int(input())
+    except Exception as e:
+        user_in = -1
+
+clone_url = [x for x in data if x['name'] == repos[user_in]][0]['clone_url']
+
+print(shell(f'git clone {clone_url} {home}/GitHub/{repos[user_in]}'))

@@ -1,0 +1,6 @@
+#!/usr/local/bin/zsh
+
+while true; do
+    cat ~/bin/mfa-click.txt | osascript - args
+    sleep 1
+done

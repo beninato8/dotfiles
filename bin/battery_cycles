@@ -1,0 +1,4 @@
+today=$(date +%F)
+health=$(system_profiler SPPowerDataType | grep Cycle | awk '{print $3}')
+echo "$today,$health" >> ~/.data/battery_cycles.csv
+awk '!seen[$0]++' ~/.data/battery_cycles.csv > ~/.data/battery_cycles_uniq.csv

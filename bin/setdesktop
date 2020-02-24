@@ -1,0 +1,5 @@
+# osascript -e 'on run argv' -e 'tell application "Finder" to set desktop picture to POSIX file "/Library/Desktop Pictures/" & item 1 of argv' -e 'end run' "$@"
+osascript -e 'set myImage to "/Library/Desktop Pictures/" & "'"$1"'" & ".jpg"
+tell application "Finder"
+    set desktop picture to POSIX file myImage
+end tell'

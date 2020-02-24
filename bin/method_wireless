@@ -1,0 +1,7 @@
+#!/usr/local/bin/zsh
+
+while [ "$(blueutil --is-connected d0-8a-55-c9-47-00)" = "0" ]; do
+    blueutil --connect d0-8a-55-c9-47-00
+    echo connecting
+done
+echo connected

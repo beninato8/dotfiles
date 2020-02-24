@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+from clipboard import *
+import re
+
+s = getClipboardData()
+blacklist = ["a", "aboard", "about", "above", "absent", "across", "after", "against", "along", "alongside", "amid", "amidst", "among", "amongst", "an", "and", "around", "as", "aslant", "astride", "at", "athwart", "atop", "barring", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but", "by", "despite", "down", "during", "except", "failing", "following", "for", "for", "from", "in", "inside", "into", "like", "mid", "minus", "near", "next", "nor", "notwithstanding", "of", "off", "on", "onto", "opposite", "or", "out", "outside", "over", "past", "per", "plus", "regarding", "round", "save", "since", "so", "than", "the", "through", "throughout", "till", "times", "to", "toward", "towards", "under", "underneath", "unlike", "until", "up", "upon", "via", "vs.", "when", "with", "within", "without", "worth", "yet"]
+punctutation = [".", " ", "!", "?", ",", ":", "-"]
+
+s = "this is a test, abcd! Wow. LKJ: atas-as"
+l = s.split()
+
+for x in l:
+    tmp = []
+    for y in x:
+
+# setClipboardData(s.title())

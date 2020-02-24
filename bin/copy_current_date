@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+
+from clipboard import *
+from datetime import datetime
+
+today = datetime.now().strftime('%-d %B %Y')
+
+tmp = getClipboardData()
+
+setClipboardData(today.encode())
+cmd("""osascript -e 'tell application "Google Chrome" to activate'""", shell=True).wait()
+time.sleep(5)
+
+setClipboardData(tmp)

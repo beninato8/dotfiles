@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import sys
+from random import randint as r
+
+args = sys.argv
+
+# b = 100000
+# l = []
+# n = 11
+# for i in range(b):
+#     l.append(r(1, n))
+# print(sum(l)/len(l))
+# print(set(l))
+# exit()
+if len(args) == 1 or not all(x.isdigit() for x in args[1:]):
+    print('Please enter a number (4) or range (4 10)')
+    exit()
+
+if len(args) == 2:
+    big = int(args[1])
+    small = 1
+
+if len(args) == 3:
+    small = int(args[1])
+    big = int(args[2])
+
+print(r(small, big))

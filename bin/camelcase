@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+from clipboard import *
+
+s = getClipboardData()
+
+setClipboardData(s.title())

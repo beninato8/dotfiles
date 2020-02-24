@@ -1,0 +1,20 @@
+#!/usr/local/bin/zsh
+
+d=$(dirname "$0")
+
+up=$(netstat -i -I en0 -b | head -2 | tail -1 | awk '{ print $10 /1024/1024 }')
+dl=$(netstat -i -I en0 -b | head -2 | tail -1 | awk '{ print $7 /1024/1024 }')
+
+# echo $up $dl
+up_file="$HOME/.data/net-up.txt"
+dl_file="$HOME/.data/net-down.txt"
+
+up_recent=$(cat $up_file | tail -1)
+dl_recent=$(cat $dl_file | tail -1)
+
+
+# echo $up - $up_recent | bc
+# exit 1
+
+$d/network-write $up $up_recent $up_file
+$d/network-write $dl $dl_recent $dl_file
