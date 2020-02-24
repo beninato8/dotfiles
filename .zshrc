@@ -124,6 +124,14 @@ EDITOR='/usr/local/bin/vim'; export EDITOR
 
 POWERLEVEL9K_MODE='awesome-mapped-fontconfig'
 
+POWERLEVEL9K_CUSTOM_SSH_PROMPT="~/bin/ssh_prompt"
+POWERLEVEL9K_CUSTOM_SSH_PROMPT_BACKGROUND=013
+POWERLEVEL9K_CUSTOM_SSH_PROMPT_FOREGROUND=black
+
+POWERLEVEL9K_CUSTOM_PIA_ON="~/bin/pia-on"
+POWERLEVEL9K_CUSTOM_PIA_ON_BACKGROUND='black'
+POWERLEVEL9K_CUSTOM_PIA_ON_FOREGROUND='green'
+
 POWERLEVEL9K_CUSTOM_PIA_ON="~/bin/pia-on"
 POWERLEVEL9K_CUSTOM_PIA_ON_BACKGROUND='black'
 POWERLEVEL9K_CUSTOM_PIA_ON_FOREGROUND='green'
@@ -196,7 +204,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
                                     custom_pia_on 
                                     custom_pia_off
 )
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator 
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator
+                                   custom_ssh_prompt
                                    custom_better_path
                                    vcs
                                    virtualenv
