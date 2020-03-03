@@ -140,7 +140,7 @@ alias vv='vlc *.{mkv,mp4,m4v}'
 
 alias com="~/bin/commits.py"
 
-alias pcon="piactl connect; sleep 5 &|; z"
+alias pcon="piactl connect; exec zsh"
 alias pdis="piactl disconnect"
 
 alias k="open ~/.config/karabiner/karabiner.json"
@@ -205,7 +205,7 @@ alias gd='git diff'
 alias git-email="git log --format='%ae' | gsort | uniq"
 alias gfpl='git fetch upstream; git checkout master; git merge upstream/master'
 alias gfps='git push origin master --force'
-alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an %ae>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
 
 yadmCommit()
 {
