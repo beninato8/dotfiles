@@ -117,7 +117,7 @@ alias mmvs='mvs; sleep 2; mv subs/* .; rm -r subs; rm *.zip; r movie; vlc *'
 alias mtitle='for f in *.mkv; do mkvpropedit "$f" -e info -s title="${f%.*}"; done'
 alias fs='for f in *.mkv; do subs $f; done; mvs; mtitle; vv'
 
-alias reboot_sound="sudo kill \$(ps aux -U root | g /coreaudiod | g -v grep | awk '{print $2}'); z"
+alias reboot_sound='sudo pkill -9 -f "coreaudiod"'
 
 alias aria2c='aria2c --file-allocation=none -d ~/Desktop/yt'
 alias dl='aria2c'
