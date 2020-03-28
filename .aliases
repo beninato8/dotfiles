@@ -25,10 +25,10 @@ alias ytmp3="ytdl -f 'bestaudio[ext=m4a]'"
 alias steg='java -jar ~/GitHub/ctfs/tools/steganography/Stegsolve.jar'
 alias nms='nms -a'
 
-alias ls="gls -CFAGX --color --group-directories-first -I .DS_Store -I 'Icon'$'\r'"
-alias lls="gls -CFAG --color --group-directories-first -I .DS_Store -I 'Icon'$'\r'"
-alias l="gls -lAhFoGX --color --group-directories-first"
-alias ll="gls -lAhFoG --color --group-directories-first"
+alias ls="gls -CFAGXH --color --group-directories-first -I .DS_Store -I 'Icon'$'\r'"
+alias lls="gls -CFAGH --color --group-directories-first -I .DS_Store -I 'Icon'$'\r'"
+alias l="gls -lAhFoGXH --color --group-directories-first"
+alias ll="gls -lAhFoGH --color --group-directories-first"
 alias cp='cp -i'
 alias mkdir='mkdir -p'
 alias grep='grep --exclude-dir={.git,env,__pycache__}'
@@ -149,6 +149,8 @@ alias uploads='netstat -i -I en0 -b | head -2 | tail -1 | awk '\''{ print $10 /1
 
 alias G='cd ~/Github/'
 alias events="icalBuddy -f 'eventsToday'"
+
+alias wifi='open $HOME/Applications/reboot\ wifi.app'
 gitNewRepo()
 {
     #$1 = repo name
