@@ -11,12 +11,11 @@ copyright: |
 docs_dir: docs/src/markdown
 theme:
   name: material
-  custom_dir: docs/theme
   palette:
-    primary: blue
-    accent: blue
-  logo:
-    icon: description
+    primary: drac-purple
+    accent: drac-purple
+  icon:
+    logo: material/book-open-page-variant
   font:
     text: Roboto
     code: Roboto Mono
@@ -35,7 +34,7 @@ nav:
 markdown_extensions:
   - markdown.extensions.toc:
       slugify: !!python/name:pymdownx.slugs.uslugify
-      permalink: "\ue157"
+      permalink: ""
   - markdown.extensions.admonition:
   - markdown.extensions.smarty:
       smart_quotes: false
@@ -59,7 +58,6 @@ markdown_extensions:
           class: arithmatex
           format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
   - pymdownx.highlight:
-      css_class: codehilite
       extend_pygments_lang:
         - name: php-inline
           lang: php
@@ -98,12 +96,18 @@ markdown_extensions:
   - pymdownx.keys:
       separator: "\uff0b"
   - pymdownx.details:
+  - pymdownx.tabbed:
 
 extra:
   social:
-    - type: github
+    - icon: fontawesome/brands/github
       link: https://github.com/facelessuser
-extra_css:
-  - extra-174a536342.css
-extra_javascript:
-  - extra-0d9305e748.js
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/rZ2n3Dy
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - mkdocs_pymdownx_material_extras
+  - minify:
+      minify_html: true
