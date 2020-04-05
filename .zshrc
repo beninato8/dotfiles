@@ -228,6 +228,7 @@ eval $(thefuck --alias tf)
 eval "$(pyenv init -)"
 eval $(gdircolors -b $HOME/.dircolors)
 source "$(brew --prefix)/etc/profile.d/z.sh"
+# if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 export CLICOLOR=1;
 
