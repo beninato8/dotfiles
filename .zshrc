@@ -229,7 +229,8 @@ eval "$(pyenv init -)"
 eval $(gdircolors -b $HOME/.dircolors)
 source "$(brew --prefix)/etc/profile.d/z.sh"
 # if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
+export CPPFLAGS=-I$(brew --prefix openssl)/include
+export LDFLAGS=-L$(brew --prefix openssl)/lib
 export CLICOLOR=1;
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
