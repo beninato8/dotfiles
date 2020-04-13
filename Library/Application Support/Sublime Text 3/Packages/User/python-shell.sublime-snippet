@@ -3,7 +3,7 @@
 from subprocess import Popen, PIPE
 
 def shell(cmd):
-    out, err = Popen(cmd, shell=True, executable='/usr/local/bin/zsh', stdout=PIPE, stderr=subprocess.PIPE).communicate()
+    out, err = Popen(cmd, shell=True, executable='/usr/local/bin/zsh', stdout=PIPE, stderr=PIPE).communicate()
     return out.decode('utf8').strip()
 
 
