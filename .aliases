@@ -569,6 +569,16 @@ masSearch()
 }
 alias m=masSearch
 
+mkcd () {
+  case "$1" in
+    */..|*/../) cd -- "$1";; # that doesn't make any sense unless the directory already exists
+    /*/../*) (cd "${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd -- "$1";;
+    /*) mkdir -p "$1" && cd "$1";;
+    */../*) (cd "./${1%/../*}/.." && mkdir -p "./${1##*/../}") && cd "./$1";;
+    ../*) (cd .. && mkdir -p "${1#.}") && cd "$1";;
+    *) mkdir -p "./$1" && cd "./$1";;
+  esac
+}
 
 # find / -iname "term" 2>&1 | grep -v "denied"
 # convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf
