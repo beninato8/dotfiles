@@ -98,7 +98,7 @@ alias seconds='ffprobe -v error -show_entries format=duration -of default=noprin
 alias sum_files='globs; for m in *.{MOV,MP4,MKV,AVI,M4V}; do seconds $m; done | sum_numbers'
 alias sum_folders='globs; for f in *(/); do cd $f; sum_files; cd ..; done | sum_numbers'
 
-alias psa='ps aux | g'
+alias psa='ps aux | g -v grep | g'
 
 alias h='subl ~/.zsh_history'
 
@@ -205,7 +205,7 @@ alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; do
 alias gdiff='git diff'
 alias gd='git diff'
 alias git-email="git log --format='%ae' | gsort | uniq"
-alias gfpl='git fetch upstream; git checkout master; git merge upstream/master'
+alias gfpl='git fetch upstream; git checkout master; git reset --hard upstream/master; git push origin master --force'
 alias gfps='git push origin master --force'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
 
