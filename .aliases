@@ -151,6 +151,8 @@ alias G='cd ~/Github/'
 alias events="icalBuddy -f 'eventsToday'"
 
 alias wifi='open $HOME/Applications/reboot\ wifi.app'
+
+alias c='chrome $(pbpaste)'
 gitNewRepo()
 {
     #$1 = repo name
