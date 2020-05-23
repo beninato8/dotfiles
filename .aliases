@@ -67,7 +67,7 @@ alias speeeeeeed="speedtest --bytes"
 alias speeeeeeeed="speedtest --bytes"
 alias speeeeeeeeed="speedtest --bytes"
 alias speeeeeeeeeed="speedtest --bytes"
-alias connor="mcstatus 23.95.30.204:25565 status"
+alias connor="mcstatus 54.39.125.90:25606 status"
 
 alias w=where
 
