@@ -153,6 +153,7 @@ alias events="icalBuddy -f 'eventsToday'"
 alias wifi='open $HOME/Applications/reboot\ wifi.app'
 
 alias c='chrome $(pbpaste)'
+alias mute="osascript -e 'set Volume 0'"
 gitNewRepo()
 {
     #$1 = repo name
