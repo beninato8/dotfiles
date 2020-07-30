@@ -154,6 +154,7 @@ alias wifi='open $HOME/Applications/reboot\ wifi.app'
 
 alias c='chrome $(pbpaste)'
 alias mute="osascript -e 'set Volume 0'"
+alias java8='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin/java'
 gitNewRepo()
 {
     #$1 = repo name
