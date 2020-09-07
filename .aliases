@@ -87,6 +87,7 @@ alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,heigh
 
 alias nompv='brew uninstall --force --ignore-dependencies mpv'
 alias brew-all='brew update; brew upgrade; nompv; brew cask upgrade --greedy; brew cask doctor; brew doctor; clean'
+alias bci='brew cask install'
 
 alias termdown='termdown -W'
 alias t='termdown'
@@ -155,6 +156,9 @@ alias wifi='open $HOME/Applications/reboot\ wifi.app'
 alias c='chrome $(pbpaste)'
 alias mute="osascript -e 'set Volume 0'"
 alias java8='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin/java'
+
+alias pms="/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner"
+
 gitNewRepo()
 {
     #$1 = repo name
