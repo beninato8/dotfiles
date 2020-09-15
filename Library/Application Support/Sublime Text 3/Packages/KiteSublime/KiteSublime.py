@@ -19,7 +19,7 @@ if sys.platform not in ('darwin', 'win32', 'linux', 'linux2'):
     raise ImportError('unsupported platform: {}'.format(sys.platform))
 
 from .lib import app_controller, deferred, logger, reporter
-from .lib import compatibility, onboarding, settings
+from .lib import installer, onboarding, settings
 from .lib.commands import *
 from .lib.handlers import *
 
@@ -32,7 +32,8 @@ def plugin_loaded():
     instance to handle deferred events, and locates and starts the Kite
     Engine if available.
     """
-    reporter.setup_excepthook()
+    if reporter.check_reporting_enabled():
+        reporter.setup_excepthook()
 
     global _consumer
     _consumer = deferred.consume()
@@ -40,17 +41,16 @@ def plugin_loaded():
     setup_completion_rules()
 
     app_controller.locate_kite()
+    kite_installed = app_controller.is_kite_installed()
 
-    if (settings.get('start_kite_engine_on_startup', True) and
-            app_controller.is_kite_installed()):
-        app_controller.launch_kite_if_not_running()
+    if not kite_installed:
+        installer.install_kite()
+    else:
+        if settings.get('start_kite_engine_on_startup', True):
+            app_controller.launch_kite_if_not_running()
 
-    if settings.get('show_help_dialog', True):
-        toggle_dialog = onboarding.start_onboarding()
-        if toggle_dialog:
-            settings.set('show_help_dialog', False)
-
-    compatibility.check_anaconda_compatibility()
+        if settings.get('show_help_dialog', True):
+            onboarding.open_tutorial('.py')
 
     logger.log('Kite v{} activated'.format(package_version()))
 
