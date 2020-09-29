@@ -159,6 +159,8 @@ alias java8='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
 
 alias pms="/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner"
 
+alias colab='jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0'
+
 gitNewRepo()
 {
     #$1 = repo name
@@ -586,6 +588,10 @@ mkcd () {
     ../*) (cd .. && mkdir -p "${1#.}") && cd "$1";;
     *) mkdir -p "./$1" && cd "./$1";;
   esac
+}
+
+bz() {
+    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'; done
 }
 
 # find / -iname "term" 2>&1 | grep -v "denied"
