@@ -160,6 +160,7 @@ alias java8='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
 alias pms="/Applications/Plex\ Media\ Server.app/Contents/MacOS/Plex\ Media\ Scanner"
 
 alias colab='jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0'
+alias public_ip='curl https://ipinfo.io/ip'
 
 gitNewRepo()
 {
