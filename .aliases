@@ -116,7 +116,8 @@ alias e='empty'
 alias mvs='globs; unzip *.zip && rename-subs; mkdir subs; for f in *.srt; do nohi $f; mv $f subs; done; rm *addic7ed*'
 alias mmvs='mvs; sleep 2; mv subs/* .; rm -r subs; rm *.zip; r movie; vlc *'
 alias mtitle='for f in *.mkv; do mkvpropedit "$f" -e info -s title="${f%.*}"; done'
-alias fs='for f in *.mkv; do subs $f; done; mvs; mtitle; vv'
+# alias fs='for f in *.mkv; do subs $f; done; mvs; mtitle; vv'
+alias fs='for f in *.mkv; do subs $f; done; mvs; vv'
 
 alias reboot_sound='sudo pkill -9 -f "coreaudiod"'
 
