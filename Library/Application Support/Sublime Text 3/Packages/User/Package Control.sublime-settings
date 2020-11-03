@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"Anaconda",
 		"BracketHighlighter",
 		"ColorSchemeEditor",
 		"Compare Side-By-Side",
@@ -19,6 +20,7 @@
 		"GitGutter",
 		"ImagePreview",
 		"Indent XML",
+		"Jedi - Python autocompletion",
 		"LC3 Assembly",
 		"lispindent",
 		"MarkdownLivePreview",
