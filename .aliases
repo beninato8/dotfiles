@@ -597,7 +597,7 @@ bz() {
 }
 
 privacy() {
-    exiftool -all= "$1"
+    exiftool -overwrite_original -all= "$1"
     gtouch --date=@0 "$1"
 }
 
