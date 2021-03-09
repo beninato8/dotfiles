@@ -138,7 +138,7 @@ alias ss3='mkdir subs; for f in *.mkv; do subs $f 3; done; for f in *.srt; do mv
 alias exts="find . -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort -u"
 
 alias pngcrush='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush'
-alias vv='vlc *.{mkv,mp4,m4v}'
+alias vv='vlc *.{mkv,mp4,m4v,avi}'
 
 alias com="~/bin/commits.py"
 
@@ -602,7 +602,7 @@ privacy() {
 }
 
 timer() {
-    /usr/local/bin/termdown -W $((int(rint(($1-$2)*13.2*60))))
+    /usr/local/bin/termdown -W $((int(rint(($1-$2)*13.2*60)))) && say ding
 }
 
 # find / -iname "term" 2>&1 | grep -v "denied"
