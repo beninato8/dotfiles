@@ -79,15 +79,15 @@ alias stahp="stop"
 alias cont="kill -CONT \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 alias mc="echo \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 
-alias clean='brew cleanup -s --prune=0 $(brew list) $(brew cask list)'
+alias clean='brew cleanup -s --prune=0 $(brew list) $(brew list --cask)'
 
 alias please="sudo \$(fc -ln -1)"
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
 alias nompv='brew uninstall --force --ignore-dependencies mpv'
-alias brew-all='brew update; brew upgrade; nompv; brew cask upgrade --greedy; brew cask doctor; brew doctor; clean'
-alias bci='brew cask install'
+alias brew-all='brew update; brew upgrade; nompv; brew upgrade --cask --greedy; brew doctor --cask; brew doctor; clean'
+alias bci='brew install'
 
 alias termdown='termdown -W'
 alias t='termdown'
