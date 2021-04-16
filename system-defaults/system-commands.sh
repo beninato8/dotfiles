@@ -8,7 +8,7 @@ sudo nvram boot-args="-v"
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app
 
 # Always show scroll bars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
@@ -145,4 +145,4 @@ defaults write com.apple.dock autohide -bool true
 
 defaults write com.apple.dock autohide-time-modifier -int 0
 
-kilall Dock
+killall Dock
