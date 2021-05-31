@@ -1,5 +1,5 @@
 {
-	"auto_complete_delay": 0,
+	"auto_complete_delay": 200,
 	"color_scheme": "Packages/Color Scheme/Lunar Eclipse v2.3.tmTheme",
 	"create_window_at_startup": true,
 	"drag_text": false,
@@ -15,7 +15,7 @@
 		"Jedi - Python autocompletion",
 		"Pylinter",
 		"Unicode Character Highlighter",
-		"Vintage"
+		"Vintage",
 	],
 	"open_files_in_new_window": false,
 	"rulers":
@@ -26,5 +26,5 @@
 	"show_tab_close_buttons": false,
 	"tab_size": 4,
 	"theme": "Adaptive.sublime-theme",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
 }
