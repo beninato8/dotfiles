@@ -12,7 +12,7 @@ export JFX=$HOME/Library/Java/javafx-sdk-11.0.2/lib/
 export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 export NLTK_DATA=/usr/local/share/
-
+export PGDATABASE=raiddb
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/Nicholas/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
@@ -225,7 +225,14 @@ esac
 # export LSCOLORS="b"
 
 eval $(thefuck --alias tf)
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+# if command -v pyenv 1>/dev/null 2>&1; then 
+#   eval "$(pyenv init --path)" 
+#   eval "$(pyenv init -)" 
+# fi
 eval $(gdircolors -b $HOME/.dircolors)
 source "$(brew --prefix)/etc/profile.d/z.sh"
 # if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
