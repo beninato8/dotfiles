@@ -253,3 +253,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt INC_APPEND_HISTORY
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# export PATH="$PATH:/Users/Nicholas/.cargo/bin"
+# source /Users/Nicholas/GitHub/faction/openpilot/tools/openpilot_env.sh
