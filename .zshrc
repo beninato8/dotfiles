@@ -13,6 +13,7 @@ export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 export NLTK_DATA=/usr/local/share/
 export PGDATABASE=raiddb
+export R_MAX_VSIZE=32000000000
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/Nicholas/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
