@@ -1,6 +1,6 @@
 {
   // "shell_cmd": "${file_path}/env/bin/python3 \"${file}\"",
-  "shell_cmd": "if [ -d env ]; then ./env/bin/python3 \"${file}\"; elif [ -d ../env ]; then ../env/bin/python3 \"${file}\"; else /usr/bin/env python3 \"${file}\"; fi",
+  "shell_cmd": "if [ -d env ]; then ./env/bin/python3 \"${file}\"; elif [ -d ../env ]; then ../env/bin/python3 \"${file}\"; elif [ -e \\${HOME}/.pyenv/shims/python3 ]; then \\${HOME}/.pyenv/shims/python3 \"${file}\"; else /usr/local/bin/python3 \"${file}\"; fi",
   "selector": "source.python", 
   "file_regex": "file \"(...*?)\", line ([0-9]+)",
   "env": {"PYTHONIOENCODING": "utf8"},
