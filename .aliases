@@ -169,7 +169,7 @@ gitNewRepo()
     mkdir -p "$1"
     cd "$1"
     echo \# "$1" >> README.md
-    cp ../LICENSE LICENSE
+    cp $HOME/GitHub/LICENSE LICENSE
     touch .gitignore
     git init
     git add README.md LICENSE .gitignore
