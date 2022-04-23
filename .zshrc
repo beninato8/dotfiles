@@ -252,6 +252,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_SAVE_NO_DUPS
 # setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
+export HISTORY_IGNORE="timer*"
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
