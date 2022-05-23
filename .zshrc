@@ -15,7 +15,7 @@ export NLTK_DATA=/usr/local/share/
 export PGDATABASE=raiddb
 export R_MAX_VSIZE=32000000000
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Nicholas/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -67,7 +67,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
