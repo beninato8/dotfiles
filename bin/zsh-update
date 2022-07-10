@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 
-cd $HOME/GitHub/LS_COLORS
+cd $HOME/GitHub/forks/LS_COLORS
 git pull
 /bin/cp -f LS_COLORS $HOME/.dircolors
 gsed -i 's/DIR                   38\;5\;30/DIR                   38\;5\;255/g' $HOME/.dircolors
