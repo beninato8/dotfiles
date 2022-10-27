@@ -607,6 +607,7 @@ timer() {
     # /usr/local/bin/termdown -W $((int(rint(($1-$2)*9.3125*60)))) && say ding
     # /usr/local/bin/termdown -W $((int(rint(($1-$2)*9.3*60)))) && say ding
     /usr/local/bin/termdown -W $((int(rint(($1-$2)*9.31*60)))) && say ding
+    # /usr/local/bin/termdown -W $((int(rint(($1-$2)*8.46*60)))) && say ding # phoebe
     # /usr/local/bin/termdown -W $((int(rint(($1-$2)*9.28125*60)))) && say ding
 }
 
