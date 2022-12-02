@@ -43,7 +43,7 @@ alias a='subl ~/.aliases'
 alias zz='subl ~/.zshrc'
 
 alias d='cd ~/Desktop'
-alias myfortune='fortune -ae 50% /usr/local/Cellar/fortune/9708/share/games/fortunes/off /usr/local/Cellar/fortune/9708/share/games/fortunes/ 10% /Users/Nicholas/.oh-my-zsh/plugins/chucknorris/fortunes/chucknorris'
+alias myfortune='fortune -ae 50% /usr/local/Cellar/fortune/9708/share/games/fortunes/off /usr/local/Cellar/fortune/9708/share/games/fortunes/'
 
 alias pip3="python3 -m pip"
 # alias pip="python3 -m pip"
@@ -52,21 +52,21 @@ alias exif="exiftool -all="
 
 alias ffmpeg="ffmpeg -hide_banner"
 
-alias say="say -i -r 200"
+alias say="say -r 200"
 alias sayo="\say -r 200 -o"
 alias lsregister="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister"
 alias register="lsregister -f"
 
-alias speedtest="speedtest --bytes"
-alias speed="speedtest --bytes"
-alias speeed="speedtest --bytes"
-alias speeeed="speedtest --bytes"
-alias speeeeed="speedtest --bytes"
-alias speeeeeed="speedtest --bytes"
-alias speeeeeeed="speedtest --bytes"
-alias speeeeeeeed="speedtest --bytes"
-alias speeeeeeeeed="speedtest --bytes"
-alias speeeeeeeeeed="speedtest --bytes"
+alias speedtest="speedtest -B"
+alias speed="speedtest -B"
+alias speeed="speedtest -B"
+alias speeeed="speedtest -B"
+alias speeeeed="speedtest -B"
+alias speeeeeed="speedtest -B"
+alias speeeeeeed="speedtest -B"
+alias speeeeeeeed="speedtest -B"
+alias speeeeeeeeed="speedtest -B"
+alias speeeeeeeeeed="speedtest -B"
 alias connor="mcstatus 54.39.125.90:25606 status"
 
 alias w=where
@@ -594,7 +594,7 @@ mkcd () {
 }
 
 bz() {
-    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'; done
+    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 107' -e ' end tell'; done
 }
 
 privacy() {
