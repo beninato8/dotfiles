@@ -12,6 +12,7 @@
 	"ignored_packages":
 	[
 		"Anaconda",
+		"GitGutter",
 		"Jedi - Python autocompletion",
 		"Pylinter",
 		"Unicode Character Highlighter",
