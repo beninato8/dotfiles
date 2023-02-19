@@ -10,6 +10,7 @@ setopt nullglob
 
 export JFX=$HOME/Library/Java/javafx-sdk-11.0.2/lib/
 export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+export HOMEBREW_CASK_OPTS=--no-quarantine
 
 export NLTK_DATA=/usr/local/share/
 export PGDATABASE=raiddb
