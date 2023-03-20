@@ -221,6 +221,7 @@ alias git-email="git log --format='%ae' | gsort | uniq"
 alias gfpl='git fetch upstream; git checkout master; git reset --hard upstream/master; git push origin master --force'
 alias gfps='git push origin master --force'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
+alias gsa="git submodule add"
 
 yadmCommit()
 {
@@ -611,5 +612,12 @@ timer() {
     # /usr/local/bin/termdown -W $((int(rint(($1-$2)*9.28125*60)))) && say ding
 }
 
-# find / -iname "term" 2>&1 | grep -v "denied"
-# convert -colorspace rgb -density 1024 f-colsealceps.eps -scale 1024x1024 f-colsealceps.pdf
+spotlight() {
+    echo -n "Do you want to hide "$(pwd)" from Spotlight? "
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        sudo /usr/libexec/PlistBuddy -c "Add :Exclusions:0 string '$(pwd)'" /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist
+        sudo launchctl stop com.apple.metadata.mds && sudo launchctl start com.apple.metadata.mds
+    fi
+}

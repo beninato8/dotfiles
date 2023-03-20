@@ -9,5 +9,6 @@ export PATH=$HOME/dotfiles:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+export PATH=/usr/local/opt/node@18/bin:$PATH
 
 # eval "$(pyenv init -)"
