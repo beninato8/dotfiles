@@ -621,3 +621,11 @@ spotlight() {
         sudo launchctl stop com.apple.metadata.mds && sudo launchctl start com.apple.metadata.mds
     fi
 }
+
+h264() {
+    ffmpeg -i "$1" -vcodec libx264 -crf 28 "$(name $1)".mp4
+}
+
+h264an() {
+    ffmpeg -i "$1" -vcodec libx264 -crf 28 -an "$(name $1)".mp4
+}
