@@ -46,4 +46,5 @@
     //terminal
     { "keys": ["super+t"], "command": "open_terminal" },
     { "keys": ["super+shift+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+    { "keys": ["ctrl+backquote"], "command": "" },
 ]
