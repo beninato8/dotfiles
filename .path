@@ -3,12 +3,14 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=/Library/TeX/texbin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=/usr/local/lib/ruby/gems/3.2.0/bin:$PATH
 # export PATH=/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/dotfiles:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+export PATH=$HOME/.docker/bin:$PATH
 export PATH=/usr/local/opt/node@18/bin:$PATH
 
 # eval "$(pyenv init -)"
