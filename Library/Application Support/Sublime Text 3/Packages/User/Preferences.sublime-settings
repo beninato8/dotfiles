@@ -11,10 +11,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Anaconda",
-		"Jedi - Python autocompletion",
-		"Pylinter",
-		"Unicode Character Highlighter",
 		"Vintage",
 	],
 	"open_files_in_new_window": false,
