@@ -7,7 +7,7 @@ try:
     txt = requests.get('https://github.com/beninato8').text
     d = datetime.now().strftime('%Y-%m-%d')
     # print(bs4(txt, 'html.parser').find('rect'))
-    b = bs4(txt, 'html.parser').find('rect', {'class':'ContributionCalendar-day', 'data-date':d})['data-count']
+    b = bs4(txt, 'html.parser').find('td', {'class':'ContributionCalendar-day', 'data-date':d})['data-level']
     print(b)
 except Exception as e:
     pass
