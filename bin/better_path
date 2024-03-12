@@ -3,20 +3,6 @@
 import os
 import re
 
-try:
-    path = os.getcwd()
-except Exception as e:
-    print("DElETED DIR")
-    exit()
-
-home = os.environ['HOME']
-
-path = re.sub(home, '~', path)
-
-if len(path) < 32:
-    print(path)
-    exit()
-
 def clear_junk(segment):
     patterns = [r'www.Torrenting.org +',
                r'Crazy4TV.com[ -]+']
@@ -40,35 +26,45 @@ def shorten(path):
             break
     return path
 
-path = path.split('/')
-path = [clear_junk(x) for x in path]
+def main():
+    try:
+        path = os.getcwd()
+    except Exception as e:
+        print("DElETED DIR")
+        exit()
 
-path = shorten(path)
+    home = os.environ['HOME']
 
-# print('directory meets requirements')
-path = os.getcwd()
-path = re.sub(home, '~', path)
-path = path.split('/')
-path = [clear_junk(x) for x in path]
+    path = re.sub(home, '~', path)
+
+    if len(path) < 32:
+        print(path)
+        exit()
+
+    path = path.split('/')
+    path = [clear_junk(x) for x in path]
+
+    top = path[-1]
+    top = re.split(r'[ \.]', top.replace('sparsebundle', ''))
+
+    max_top = len(top)
+    for i,x in enumerate(top):
+        if re.search(r'( - )|S\d+|(Complete)? ?Season.*|\(.*|((19|20)\d{2})', x) and 'beninato' not in x:
+            max_top = i
+    top = ' '.join(top[:max_top])
+
+    path[-1] = top
+    # print(top)
+    path = shorten(path)
 
 
-top = path[-1]
-top = re.split(r'[ \.]', top)
+    if len('/'.join(path)) < 48:
+        print('/'.join(path))
+        exit()
 
-max_top = len(top)
-for i,x in enumerate(top):
-    if re.search('( - )|S\d+|(Complete)? ?Season.*|\(.*|((19|20)\d{2})', x):
-        max_top = i
-top = ' '.join(top[:max_top])
-
-path[-1] = top
-# print(top)
-path = shorten(path)
+    disp = '/'.join(path)
+    print(disp[:45] + '...')
 
 
-if len('/'.join(path)) < 48:
-    print('/'.join(path))
-    exit()
-
-disp = '/'.join(path)
-print(disp[:45] + '...')
+if __name__ == '__main__':
+    main()
