@@ -7,6 +7,7 @@ pyenv versions | grep -o "\d\+.\d\+.\d\+" | while read f; do
     echo "*************************************"
     pyenv local $f
     eval "$(pyenv init -)"
+    pip install --upgrade pip
     pip-upgrade
     # exit 1
 done
