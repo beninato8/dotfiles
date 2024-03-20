@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-import pkg_resources
+import importlib.metadata as metadata
 from subprocess import call
 
 blacklist = ['bleach', 'html5lib', 'urllib3', '-BB']
 blacklist = []
-packages = [dist.project_name for dist in pkg_resources.working_set if dist.project_name not in blacklist]
+packages = [dist for dist in metadata.distributions() if dist.metadata['Name'] not in blacklist]
+packages = sorted([package.metadata['Name'] for package in packages])
 # call("rm -rf $HOME/.pyenv/versions/**/~BB*(/)", shell=True, executable='/bin/zsh')
 call("pip install --upgrade -- " + ' '.join(packages), shell=True)
 exit()
