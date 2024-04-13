@@ -1,4 +1,9 @@
 #!/usr/local/bin/zsh
+if ! command -v piactl &> /dev/null
+then
+    echo "❌"
+    exit
+fi
 
 stat="$(piactl get vpnip)"
 source $HOME/bin/resources/font-map.sh
