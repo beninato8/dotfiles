@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -12,8 +11,8 @@ data.plot()
 days = (data.index[-1] - data.index[0])
 days = days.days
 charge = (data['mA'][0] - data['mA'][-1])
-# print(days, charge)
-plt.title(f'{charge/days:.2f} mAh lost per day')
+# print(days, charge, charge/days)
+plt.title(f'{charge/days:.2f} mAh lost per day (currently {data["mA"][-1]})')
 
 # design = 6559
 # loss = charge/design
