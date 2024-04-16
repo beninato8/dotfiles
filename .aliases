@@ -196,10 +196,14 @@ gitAddCommitPush()
     else
         echo "Not enough arguments in \"$@\""
     fi
-
-    
 }
 alias gg='gitAddCommitPush'
+
+gitCheckout()
+{
+    git checkout $1 || git checkout -b $1
+}
+alias gcb="gitCheckout"
 
 alias gmv="git mv -k"
 alias ga="git add"
@@ -230,6 +234,7 @@ yadmCommit()
 alias yc="yadmCommit"
 alias ya="yadm add"
 alias ys="yadm status"
+alias yd="yadm diff"
 alias yps="yadm push; ~/b/commits_out"
 alias yy="yadm add ~/.zshrc ~/.path ~/.aliases; yadm commit -m \"dotfiles \$(date +%Y-%m-%d)\"; \
           yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; \
@@ -623,9 +628,13 @@ spotlight() {
 }
 
 h264() {
-    ffmpeg -i "$1" -vcodec libx264 -crf 28 "$(name $1)".mp4
+    cp "$1" temp-h264.mp4
+    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 "$(name $1)".mp4
+    rm temp-h264.mp4
 }
 
 h264an() {
-    ffmpeg -i "$1" -vcodec libx264 -crf 28 -an "$(name $1)".mp4
+    cp "$1" temp-h264an.mp4
+    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 -an "$(name $1)".mp4
+    rm temp-h264an.mp4
 }
