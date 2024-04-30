@@ -3,21 +3,24 @@
 cp /Applications/Google\ Chrome.app/Contents/Resources/app.icns ~/custom-icons/backup/chrome\-$(date +%H.%M.%S-%d.%m.%y).icns
 sudo cp ~/custom-icons/icns/chrome.icns /Applications/Google\ Chrome.app/Contents/Resources/app.icns
 sudo touch /Applications/Google\ Chrome.app
+xattr -rc /Applications/Google\ Chrome.app
 
 # sublime
 cp /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns ~/custom-icons/backup/sublime\-$(date +%H.%M.%S-%d.%m.%y).icns
-# cp /Applications/Sublime\ Text.app/Contents/Resources/PYTHON.icns ~/custom-icons/backup/python\-$(date +%H.%M.%S-%d.%m.%y).icns
-# cp /Applications/Sublime\ Text.app/Contents/Resources/SHELL.icns ~/custom-icons/backup/shell\-$(date +%H.%M.%S-%d.%m.%y).icns
+cp /Applications/Sublime\ Text.app/Contents/Resources/PYTHON.icns ~/custom-icons/backup/python\-$(date +%H.%M.%S-%d.%m.%y).icns
+cp /Applications/Sublime\ Text.app/Contents/Resources/SHELL.icns ~/custom-icons/backup/shell\-$(date +%H.%M.%S-%d.%m.%y).icns
 
 cp ~/custom-icons/icns/sublime.icns /Applications/Sublime\ Text.app/Contents/Resources/Sublime\ Text.icns
-# cp ~/custom-icons/icns/python.icns /Applications/Sublime\ Text.app/Contents/Resources/PYTHON.icns
-# cp ~/custom-icons/icns/shell.icns /Applications/Sublime\ Text.app/Contents/Resources/SHELL.icns
+cp ~/custom-icons/icns/python.icns /Applications/Sublime\ Text.app/Contents/Resources/PYTHON.icns
+cp ~/custom-icons/icns/shell.icns /Applications/Sublime\ Text.app/Contents/Resources/SHELL.icns
 touch /Applications/Sublime\ Text.app
+xattr -rc /Applications/Sublime\ Text.app
 
 # vlc
 cp /Applications/VLC.app/Contents/Resources/VLC.icns ~/custom-icons/backup/vlc\-$(date +%H.%M.%S-%d.%m.%y).icns
 cp ~/custom-icons/icns/vlc.icns /Applications/VLC.app/Contents/Resources/VLC.icns
 touch /Applications/VLC.app
+xattr -rc /Applications/VLC.app
 
 # iterm
 cp /Applications/iTerm.app/Contents/Resources/AppIcon ~/custom-icons/backup/iterm\-$(date +%H.%M.%S-%d.%m.%y).icns
@@ -25,21 +28,25 @@ cp ~/custom-icons/icns/iterm.icns /Applications/iTerm.app/Contents/Resources/App
 cp ~/custom-icons/icns/iterm.icns /Applications/iTerm.app/Contents/Resources/AppIcon.icns
 cp ~/custom-icons/icns/iterm.icns /Applications/iTerm.app/Contents/Resources/iTerm2.icns
 touch /Applications/iTerm.app
+xattr -rc /Applications/iTerm.app
 
 # tor
-cp /Applications/TorBrowser.app/Contents/Resources/firefox.icns ~/custom-icons/backup/tor\-$(date +%H.%M.%S-%d.%m.%y).icns
-cp ~/custom-icons/icns/tor.icns /Applications/TorBrowser.app/Contents/Resources/firefox.icns
-touch /Applications/TorBrowser.app
+cp /Applications/Tor\ Browser.app/Contents/Resources/firefox.icns ~/custom-icons/backup/tor\-$(date +%H.%M.%S-%d.%m.%y).icns
+cp ~/custom-icons/icns/tor.icns /Applications/Tor\ Browser.app/Contents/Resources/firefox.icns
+touch /Applications/Tor\ Browser.app
+xattr -rc /Applications/Tor\ Browser.app
 
 # bartender
 cp /Applications/Bartender\ 3.app/Contents/Resources/AppIcon.icns ~/custom-icons/backup/bartender\-$(date +%H.%M.%S-%d.%m.%y).icns
 cp ~/custom-icons/icns/Bartender.icns /Applications/Bartender\ 3.app/Contents/Resources/AppIcon.icns
 touch /Applications/Bartender\ 3.app
+xattr -rc /Applications/Bartender\ 3.app
 
 # eclipse
-cp /Applications/Eclipse.app/Contents/Resources/Eclipse.icns ~/custom-icons/backup/eclipse\-$(date +%H.%M.%S-%d.%m.%y).icns
-cp ~/custom-icons/icns/Eclipse.icns /Applications/Eclipse.app/Contents/Resources/Eclipse.icns
-touch /Applications/Eclipse.app
+cp /Applications/Eclipse\ Java.app/Contents/Resources/Eclipse.icns ~/custom-icons/backup/eclipse\-$(date +%H.%M.%S-%d.%m.%y).icns
+cp ~/custom-icons/icns/Eclipse.icns /Applications/Eclipse\ Java.app/Contents/Resources/Eclipse.icns
+touch /Applications/Eclipse\ Java.app
+xattr -rc /Applications/Eclipse\ Java.app
 
 killall Dock
 killall Finder
