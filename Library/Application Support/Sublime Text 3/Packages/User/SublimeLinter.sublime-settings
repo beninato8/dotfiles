@@ -1,0 +1,12 @@
+// SublimeLinter Settings - User
+{
+    // "debug": true,
+    
+    "linters": {
+        "flake8": {
+            "env": {
+                // "PATH": "~/path/to/bin:$PATH"
+            }
+        }
+    }
+}

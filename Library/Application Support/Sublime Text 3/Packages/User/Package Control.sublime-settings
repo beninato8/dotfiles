@@ -1,29 +1,10 @@
 {
-	"bootstrapped": true,
-	"installed_packages":
-	[
-		"BracketHighlighter",
-		"ColorSchemeEditor",
-		"Compare Side-By-Side",
-		"Default File Type",
-		"ExportHtml",
-		"Fix Mac Path",
-		"JsPrettier",
-		"lispindent",
-		"MarkdownLivePreview",
-		"MarkdownPreview",
-		"Origami",
-		"Package Control",
-		"PackageResourceViewer",
-		"Pretty JSON",
-		"PyenvEnv",
-		"Terminal",
-		"Trimmer",
-		"Unicode Character Highlighter",
-		"x86 and x86_64 Assembly",
-		"ZSH",
-	],
 	"in_process_packages":
 	[
+	],
+	"installed_packages":
+	[
+		"Package Control",
+		"python-black",
 	],
 }
