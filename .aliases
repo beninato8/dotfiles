@@ -630,7 +630,7 @@ spotlight() {
 
 h264() {
     cp "$1" temp-h264.mp4
-    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 "$(name $1)".mp4 && rm temp-h264.mp4
+    ffmpeg -i temp-h264.mp4 -vcodec libx264 -crf 28 "$(name $1)".mp4 && rm temp-h264.mp4
 }
 
 h264an() {
