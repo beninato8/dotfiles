@@ -79,13 +79,13 @@ alias stahp="stop"
 alias cont="kill -CONT \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 alias mc="echo \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 
-alias clean='brew cleanup -s --prune=0 $(brew list) $(brew list --cask)'
+alias clean='brew cleanup -s --prune=0 $(brew list) $(brew list --cask); brew autoremove'
 
 alias please="sudo \$(fc -ln -1)"
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
-alias nompv='brew uninstall --force --ignore-dependencies mpv'
+alias nompv='brew uninstall --force --ignore-dependencies stolendata-mpv'
 alias brew-all='brew update; brew upgrade; nompv; brew upgrade --cask --greedy; brew doctor; clean'
 alias bci='brew install'
 
