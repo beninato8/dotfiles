@@ -11,6 +11,7 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"python-black",
 		"Vintage",
 	],
 	"open_files_in_new_window": false,
