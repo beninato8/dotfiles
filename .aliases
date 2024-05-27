@@ -236,7 +236,7 @@ alias ya="yadm add"
 alias ys="yadm status"
 alias yd="yadm diff"
 alias yps="yadm push; ~/b/commits_out"
-alias yy="yadm add ~/.zshrc ~/.path ~/.aliases; yadm commit -m \"dotfiles \$(date +%Y-%m-%d)\"; \
+alias yy="yadm add ~/.zshrc ~/.path ~/.aliases ~/.oh-my-zsh-custom; yadm commit -m \"dotfiles \$(date +%Y-%m-%d)\"; \
           yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; \
           brew list > ~/system-commands/brew.txt; yadm add ~/system-commands/brew.txt; yadm commit -m \"brew list \$(date +%Y-%m-%d)\"; \
           yadm add ~/system-commands/*; yadm commit -m \"system-commands \$(date +%Y-%m-%d)\"; \
@@ -630,12 +630,10 @@ spotlight() {
 
 h264() {
     cp "$1" temp-h264.mp4
-    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 "$(name $1)".mp4
-    rm temp-h264.mp4
+    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 "$(name $1)".mp4 && rm temp-h264.mp4
 }
 
 h264an() {
     cp "$1" temp-h264an.mp4
-    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 -an "$(name $1)".mp4
-    rm temp-h264an.mp4
+    ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 -an "$(name $1)".mp4 && rm temp-h264an.mp4
 }
