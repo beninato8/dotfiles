@@ -237,8 +237,9 @@ alias ys="yadm status"
 alias yd="yadm diff"
 alias yps="yadm push; ~/b/commits_out"
 alias yy="yadm add ~/.zshrc ~/.path ~/.aliases; yadm commit -m \"dotfiles \$(date +%Y-%m-%d)\"; \
-          yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; \
-          yadm add ~/system-defaults/*; yadm commit -m \"system-defaults \$(date +%Y-%m-%d)\"; \
+          yadm add ~/Library/Application\ Support/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages; yadm commit -m \"sublime \$(date +%Y-%m-%d)\"; \
+          brew list > ~/system-commands/brew.txt; yadm add ~/system-commands/brew.txt; yadm commit -m \"brew list \$(date +%Y-%m-%d)\"; \
+          yadm add ~/system-commands/*; yadm commit -m \"system-commands \$(date +%Y-%m-%d)\"; \
           yadm push; commits_out"
 
 makeNewFile()
