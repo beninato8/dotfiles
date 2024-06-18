@@ -272,6 +272,7 @@ nlohmann-json
 nmap
 node
 node@18
+node@20
 npth
 nspr
 nss
