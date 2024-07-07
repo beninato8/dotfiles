@@ -419,8 +419,8 @@ zstd
 alfred
 altdeploy
 altserver
+anki
 asset-catalog-tinkerer
-backblaze
 backuploupe
 balenaetcher
 blender
