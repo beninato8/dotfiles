@@ -84,6 +84,7 @@ gdbm
 gdk-pixbuf
 gettext
 gflags
+gh
 ghostscript
 giflib
 gifsicle
