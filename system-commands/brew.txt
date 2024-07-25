@@ -169,7 +169,7 @@ libepoxy
 libevent
 libffi
 libgcrypt
-libgit2
+libgit2@1.7
 libgpg-error
 libgsf
 libheif
@@ -351,6 +351,7 @@ rtorrent
 rubberband
 ruby
 rust
+rustup
 rustup-init
 screen
 screenresolution
