@@ -17,7 +17,6 @@ autoconf
 automake
 bash
 bat
-berkeley-db@5
 bfg
 binwalk
 blueutil
@@ -169,6 +168,7 @@ libepoxy
 libevent
 libffi
 libgcrypt
+libgit2
 libgit2@1.7
 libgpg-error
 libgsf
@@ -307,7 +307,6 @@ pangomm@2.46
 pcre
 pcre2
 pdfcrack
-perl
 php
 pigz
 pillow
@@ -328,7 +327,6 @@ pyenv
 pygobject3
 pyqt
 python-packaging
-python-setuptools
 python@3.10
 python@3.11
 python@3.12
