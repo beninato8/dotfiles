@@ -1,6 +1,12 @@
-stat="$(piactl get vpnip)"
+#!/usr/local/bin/zsh
 
+stat="$(piactl get vpnip)"
+# echo $stat
 if [[ ${stat:0:1} == "U" ]]; then
-    killall Transmission &>/dev/null
-    pkill -f Popcorn-Time &>/dev/null
+    online=$(ping -c 1 google.com &> /dev/null || echo offline)
+    if [[ $online != "offline" ]]; then
+        pkill -9 -f "Transmission.app" &> /dev/null && osascript -e 'display notification "Transmission killed"'
+        pkill -9 -f "nwjs" &> /dev/null && osascript -e 'display notification "Popcorn-Time killed"'
+        pkill -9 -f "WebTorrent.app" &> /dev/null && osascript -e 'display notification "WebTorrent killed"'
+    fi
 fi
