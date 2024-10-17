@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python3
 
 import os
 import re
@@ -18,8 +18,9 @@ def shorten(path):
         for i, x in enumerate(path[:-1]):
             if x != '~':
                 path[i] = x[:small_seg]
-            if len('/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]])) < 32:
-                print('/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]]))
+            tmp = '/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]])
+            if len(tmp) < 32:
+                print(tmp)
                 exit()
         small_seg -= 1
         if small_seg == 0:
@@ -54,9 +55,7 @@ def main():
     top = ' '.join(top[:max_top])
 
     path[-1] = top
-    # print(top)
     path = shorten(path)
-
 
     if len('/'.join(path)) < 48:
         print('/'.join(path))
