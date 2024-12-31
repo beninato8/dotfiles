@@ -36,6 +36,7 @@ capnp
 ceres-solver
 certifi
 cffi
+cgns
 chrome-cli
 cjson
 clang-format
@@ -173,6 +174,7 @@ libgit2
 libgit2@1.7
 libgpg-error
 libgsf
+libharu
 libheif
 libidn
 libidn2
@@ -321,6 +323,7 @@ pngquant
 poppler
 popt
 postgresql@14
+proj
 protobuf
 pugixml
 py3cairo
