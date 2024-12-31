@@ -9,7 +9,6 @@ apr-util
 argon2
 aria2
 aribb24
-aspell
 assimp
 at-spi2-core
 atkmm@2.28
@@ -92,7 +91,6 @@ gifski
 git
 git-gui
 git-lfs
-gl2ps
 glew
 glfw
 glib
@@ -277,7 +275,6 @@ ninja
 nlohmann-json
 nmap
 node
-node@18
 node@20
 npth
 nspr
@@ -369,7 +366,6 @@ speex
 sqlite
 srt
 srtp
-sshfs-mac
 suite-sparse
 svt-av1
 switchaudio-osx
@@ -410,7 +406,6 @@ xxhash
 xz
 yadm
 yarn
-youtube-dl
 yt-dlp
 z
 z3
@@ -474,7 +469,6 @@ karabiner-elements
 keyboard-maestro
 libreoffice
 linear-linear
-macfuse
 mactex
 microsoft-auto-update
 microsoft-teams
@@ -485,6 +479,7 @@ netron
 nteract
 obs
 obsidian
+orbstack
 plex-media-server
 postgres-unofficial
 postman
