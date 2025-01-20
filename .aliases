@@ -30,6 +30,7 @@ alias lls="gls -CFAGH --color --group-directories-first -I .DS_Store -I 'Icon'$'
 alias l="gls -lAhFoGXH --color --group-directories-first"
 alias ll="gls -lAhFoGH --color --group-directories-first"
 alias cp='cp -i'
+alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias grep='grep --exclude-dir={.git,env,__pycache__}'
 alias g='grep -i'
