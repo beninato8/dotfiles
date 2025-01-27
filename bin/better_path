@@ -18,7 +18,7 @@ def shorten(path):
         for i, x in enumerate(path[:-1]):
             if x != '~':
                 path[i] = x[:small_seg]
-            tmp = '/'.join([x.replace(' ', '') for x in path if x != path[-1]] + [path[-1]])
+            tmp = '/'.join([y.replace(' ', '') for j, y in enumerate(path) if j != len(path) - 1] + [path[-1]])
             if len(tmp) < 32:
                 print(tmp)
                 exit()
