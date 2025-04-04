@@ -602,7 +602,7 @@ mkcd () {
 }
 
 bz() {
-    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 107' -e ' end tell'; done
+    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'; done
 }
 
 privacy() {
