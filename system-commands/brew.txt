@@ -174,7 +174,6 @@ libevent
 libffi
 libgcrypt
 libgit2
-libgit2@1.8
 libgpg-error
 libgsf
 libharu
