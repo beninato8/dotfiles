@@ -12,5 +12,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=$HOME/.docker/bin:$PATH
 export PATH=/usr/local/opt/node@20/bin:$PATH
+export PATH=$HOME/fvm/default/bin:$PATH
+export PATH=$HOME/.pub-cache/bin:$PATH
 
 # eval "$(pyenv init -)"

@@ -255,3 +255,9 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # export PATH="$PATH:/Users/Nicholas/.cargo/bin"
 # source /Users/Nicholas/GitHub/faction/openpilot/tools/openpilot_env.sh
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/Nicholas/.dart-cli-completion/zsh-config.zsh ]] && . /Users/Nicholas/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
