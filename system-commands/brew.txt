@@ -79,6 +79,7 @@ freetds
 freetype
 frei0r
 fribidi
+fvm
 gcc
 gd
 gdb
@@ -386,7 +387,7 @@ tesseract
 thefuck
 theora
 tidy-html5
-tldr
+tlrc
 tmux
 trash
 tree
@@ -449,7 +450,6 @@ discord-canary
 discord-ptb
 discord@canary
 discord@ptb
-docker
 eclipse-java
 fing
 firefox
