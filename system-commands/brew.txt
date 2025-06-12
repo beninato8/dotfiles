@@ -247,7 +247,6 @@ libzen
 libzip
 little-cms2
 llvm
-llvm@19
 lolcat
 lua
 lucky-commit
