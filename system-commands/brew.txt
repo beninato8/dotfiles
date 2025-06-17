@@ -439,9 +439,7 @@ browserosaurus
 calibre
 chromedriver
 chromium
-clion
 cyberduck
-daisydisk
 db-browser-for-sqlite
 deluge
 discord
