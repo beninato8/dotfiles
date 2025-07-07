@@ -11,6 +11,7 @@ argon2
 aria2
 aribb24
 assimp
+assimp@5
 at-spi2-core
 atkmm@2.28
 autoconf
@@ -453,6 +454,7 @@ firefox
 font-awesome-terminal-fonts
 font-hack-nerd-font
 fontforge
+fontforge-app
 gcc-arm-embedded
 github
 go64
@@ -476,7 +478,6 @@ karabiner-elements
 keyboard-maestro
 libreoffice
 linear-linear
-mactex
 microsoft-auto-update
 microsoft-teams
 minecraft
