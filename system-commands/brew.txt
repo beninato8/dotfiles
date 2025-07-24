@@ -193,6 +193,8 @@ libmms
 libmng
 libmpc
 libnghttp2
+libnghttp3
+libngtcp2
 libnice
 libogg
 libomp
@@ -367,6 +369,7 @@ screen
 screenresolution
 sdl2
 shared-mime-info
+simdjson
 sl
 snappy
 sox
