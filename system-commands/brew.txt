@@ -54,7 +54,6 @@ dav1d
 dbus
 djvu2pdf
 djvulibre
-docker-credential-helper
 docutils
 double-conversion
 doxygen
@@ -112,6 +111,7 @@ gobject-introspection
 goffice
 gpac
 gpgme
+gpgmepp
 graphene
 graphite2
 graphviz
@@ -441,8 +441,6 @@ bartender
 blender
 browserosaurus
 calibre
-chromedriver
-chromium
 cyberduck
 db-browser-for-sqlite
 deluge
@@ -493,14 +491,12 @@ obsidian
 orbstack
 plex-media-server
 postgres-unofficial
-postman
 postman-cli
 pycharm-ce
 qbittorrent
 qladdict
 qlcolorcode
 qlfits
-qlimagesize
 qlmarkdown
 qlstephen
 qlvideo
@@ -513,7 +509,6 @@ signal
 skybox
 skype
 slack
-soundflower
 steam
 sublime-merge
 sublime-text
