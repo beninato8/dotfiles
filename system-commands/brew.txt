@@ -11,7 +11,6 @@ argon2
 aria2
 aribb24
 assimp
-assimp@5
 at-spi2-core
 atkmm@2.28
 autoconf
@@ -224,6 +223,7 @@ libtiff
 libtommath
 libtool
 libtorrent-rakshasa
+libudfread
 libunibreak
 libunistring
 libusb
@@ -303,6 +303,7 @@ openjdk@11
 openjdk@17
 openjdk@8
 openjpeg
+openjph
 openldap
 openssl@1.1
 openssl@3
@@ -402,6 +403,7 @@ unpaper
 utf8cpp
 utf8proc
 uv
+uvwasi
 vala
 vim
 vtk
