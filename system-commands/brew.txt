@@ -440,7 +440,6 @@ anki
 asset-catalog-tinkerer
 backuploupe
 balenaetcher
-bartender
 blender
 browserosaurus
 calibre
