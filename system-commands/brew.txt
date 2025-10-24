@@ -173,6 +173,7 @@ libebml
 libepoxy
 libevent
 libffi
+libfyaml
 libgcrypt
 libgit2
 libgpg-error
@@ -517,6 +518,7 @@ sublime-text
 superduper
 suspicious-package
 syntax-highlight
+tailscale-app
 temurin8
 temurin@8
 texmaker
