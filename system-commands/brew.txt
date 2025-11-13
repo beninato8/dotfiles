@@ -10,7 +10,6 @@ apr-util
 argon2
 aria2
 aribb24
-assimp
 at-spi2-core
 atkmm@2.28
 autoconf
@@ -51,6 +50,7 @@ cryptography
 curl
 dav1d
 dbus
+deno
 djvu2pdf
 djvulibre
 docutils
@@ -131,7 +131,6 @@ highway
 htop
 httpd
 hub
-hunspell
 hwloc
 hyperfine
 ical-buddy
@@ -190,7 +189,6 @@ libmatroska
 libmediainfo
 libmicrohttpd
 libmms
-libmng
 libmpc
 libnghttp2
 libnghttp3
@@ -202,6 +200,7 @@ libpng
 libpq
 libpsl
 libpthread-stubs
+libptytty
 libraqm
 libraw
 libreplaygain
@@ -341,17 +340,19 @@ pybind11
 pycparser
 pyenv
 pygobject3
-pyqt
 python-packaging
 python@3.10
 python@3.11
 python@3.12
 python@3.13
+python@3.14
 python@3.9
 qpdf
 qrencode
-qt
 qt@5
+qtbase
+qtdeclarative
+qtsvg
 r
 rav1e
 re2
@@ -464,6 +465,7 @@ go64
 google-chrome
 gpg-suite-no-mail
 hocus-focus
+iina
 image2icon
 imageoptim
 imazing
