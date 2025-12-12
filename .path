@@ -15,5 +15,7 @@ export PATH=/usr/local/opt/node@20/bin:$PATH
 export PATH=$HOME/fvm/default/bin:$PATH
 export PATH=$HOME/.pub-cache/bin:$PATH
 export PATH=$HOME/.orbstack/bin:$PATH
+GOBIN_PATH="$(go env GOPATH)/bin"
+export PATH="$GOBIN_PATH:$PATH"
 
 # eval "$(pyenv init -)"
