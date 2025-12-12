@@ -30,10 +30,10 @@ alias lls="gls -CFAGH --color --group-directories-first -I .DS_Store -I 'Icon'$'
 alias l="gls -lAhFoGXH --color --group-directories-first"
 alias ll="gls -lAhFoGH --color --group-directories-first"
 alias cp='cp -i'
-alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias grep='grep --exclude-dir={.git,env,__pycache__}'
-alias g='grep -i'
+alias rg='rg --glob "!\{.git/,env/,__pycache__/\}"'
+alias g='rg -i'
 
 alias du='du -sch'
 alias size="globs;\du -sch * .* | gsort -h"
@@ -80,13 +80,13 @@ alias stahp="stop"
 alias cont="kill -CONT \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 alias mc="echo \$(ps -ef | grep java | awk '{print $2}' | sed -n '2 p' | grep '\S')"
 
-alias clean='brew cleanup -s --prune=0 $(brew list) $(brew list --cask); brew autoremove'
+alias clean='brew cleanup -s --prune=0 $(brew list) $(brew list --cask)'
 
 alias please="sudo \$(fc -ln -1)"
 
 alias dim='ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0'
 
-alias nompv='brew uninstall --force --ignore-dependencies stolendata-mpv'
+alias nompv='brew uninstall --force --ignore-dependencies mpv'
 alias brew-all='brew update; brew upgrade; nompv; brew upgrade --cask --greedy; brew doctor; clean'
 alias bci='brew install'
 
@@ -187,6 +187,12 @@ gitCommit()
 }
 alias gc="gitCommit"
 
+gitCheckout()
+{
+    git checkout $1 || git checkout -b $1
+}
+alias gcb="gitCheckout"
+
 gitAddCommitPush()
 {
     if ((${#*[@]} > 1)); then
@@ -200,33 +206,42 @@ gitAddCommitPush()
 }
 alias gg='gitAddCommitPush'
 
-gitCheckout()
+gitRebaseOnto()
 {
-    git checkout $1 || git checkout -b $1
+    current_branch=$(git branch --show-current)
+    target_branch=${1:-master}
+    git fetch origin || return 1
+    BASE=$(git merge-base "$current_branch" "origin/$target_branch") || return 1
+    git rebase --onto "origin/$target_branch" "$BASE" "$current_branch" || return 1
 }
-alias gcb="gitCheckout"
+alias gro="gitRebaseOnto"
+
+gitBranchDelete()
+{
+    [ -z "$1" ] && { echo "usage: gitDelete <branch>"; return 1; }
+    git branch -D "$1" || return 1
+    git push origin --delete "$1" || return 1
+}
+alias gbd="gitBranchDelete"
 
 alias gmv="git mv -k"
 alias ga="git add"
-alias gaa="git add -A"  
-alias gs="gpl; git gc --auto; git status"  
+alias gaa="git add -A"
+alias gs="git status"
 alias gundo="git reset HEAD~"
 alias gpl="git pull"
 alias gps="git push; ~/b/commits_out"
-alias gph="gps"
-alias gpsh="gps"
 alias gopen="git open"
-alias gbrowser="gopen"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
 alias git-clean='git gc --prune=now --aggressive'
 alias gclean='cd ~/Github; for d in *(/); do cd $d; echo; pwd; git-clean; ..; done'
-alias gdiff='git diff'
-alias gd='git diff'
+alias gd='git diff -w'
 alias git-email="git log --format='%ae' | gsort | uniq"
 alias gfpl='git fetch upstream; git checkout master; git reset --hard upstream/master; git push origin master --force'
-alias gfps='git push origin master --force'
+alias gfps='git push --force'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
-alias gsa="git submodule add"
+alias gca="git commit --amend"
+alias gmt="git mergetool"
 
 yadmCommit()
 {
@@ -258,7 +273,7 @@ searchInFile()
     grep -rinl $1 -e "$2"
 }
 # alias ff=searchInFile
-alias ff="grep -rin"
+alias ff="rg -in"
 
 searchForFileName()
 {
@@ -551,8 +566,8 @@ splitMulti()
     if [[ $1 ]]; then
         num="$1"
     fi
-    for f in *.{jpg,png}; do 
-        split "$f" $num; 
+    for f in *.{jpg,png}; do
+        split "$f" $num;
     done
 }
 alias splitall='splitMulti'
@@ -602,7 +617,7 @@ mkcd () {
 }
 
 bz() {
-    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'; done
+    for i in {1..16}; do osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'; sleep .1; done
 }
 
 privacy() {
@@ -637,4 +652,26 @@ h264() {
 h264an() {
     cp "$1" temp-h264an.mp4
     ffmpeg -i temp-h264an.mp4 -vcodec libx264 -crf 28 -an "$(name $1)".mp4 && rm temp-h264an.mp4
+}
+
+args_to_list() {
+    local args
+    args=("$@")  # Store all arguments in an array
+    local formatted_args=()
+
+    for arg in "${args[@]}"; do
+        formatted_args+=("\"$arg\",")  # Surround each argument with double quotes
+    done
+
+    local output="${formatted_args[@]}"
+    output="${output:0:-1}"  # Remove the last two characters
+
+    echo "$output"
+}
+
+pods() {
+    cd ios
+    rm -rf Pods Podfile.lock
+    pod repo update && pod install
+    cd ..
 }
