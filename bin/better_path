@@ -50,7 +50,7 @@ def main():
 
     max_top = len(top)
     for i,x in enumerate(top):
-        if re.search(r'( - )|S\d+|(Complete)? ?Season.*|\(.*|((19|20)\d{2})', x) and 'beninato' not in x:
+        if re.search(r'( - )|S\d+|(Complete)? ?Season.*|\(.*|((19|20)\d{2})', x) and 'beninato' not in x and not re.search(r'\d{4}-\d{2}-\d{2}', x):
             max_top = i
     top = ' '.join(top[:max_top])
 
