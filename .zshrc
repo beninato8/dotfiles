@@ -1,7 +1,12 @@
+autoload -Uz compinit
+compinit
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+source $HOME/.path
+source $HOME/.completions
 source $HOME/.aliases
 source $HOME/.friends
 source $HOME/.vars
-source $HOME/.path
 source $HOME/bin/resources/font-map.sh
 source $HOME/GitHub/credentials/git-tokens
 save_aliases=$(alias -L)
@@ -11,6 +16,10 @@ setopt nullglob
 export JFX=$HOME/Library/Java/javafx-sdk-11.0.2/lib/
 export SUBL_CFG="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 export HOMEBREW_CASK_OPTS=--no-quarantine
+
+export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+export ANDROID_SDK_ROOT=/opt/homebrew/share/android-commandlinetools
+export ANDROID_AVD_HOME=$HOME/.android/avd
 
 export NLTK_DATA=/usr/local/share/
 export PGDATABASE=raiddb
@@ -23,7 +32,13 @@ DISABLE_UPDATE_PROMPT=true
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# ~/.zshrc — disable Powerlevel10k when Cursor Agent runs
+if [[ -n "$CURSOR_AGENT" ]]; then
+  # Skip theme initialization for better compatibility
+else
+  ZSH_THEME="powerlevel9k/powerlevel9k"
+fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -76,9 +91,8 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git-open
-  chucknorris
   zsh-autosuggestions
-  osx
+  #osx
   virtualenv
 )
 
@@ -101,7 +115,7 @@ ZSH_THEME_VIRTUALENV_SUFFIX=")"
 #   export EDITOR='mvim'
 # fi
 
-EDITOR='/usr/local/bin/vim'; export EDITOR
+EDITOR='vim'; export EDITOR
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -198,7 +212,7 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 # POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=( 
                                     # custom_now_playing 
-                                    time 
+                                    # time 
                                     custom_pia_on 
                                     custom_pia_off
 )
@@ -243,21 +257,23 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export HISTFILE=~/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_SAVE_NO_DUPS
-# setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
 export HISTORY_IGNORE="timer*"
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export PATH="$PATH:/Users/Nicholas/.cargo/bin"
-# source /Users/Nicholas/GitHub/faction/openpilot/tools/openpilot_env.sh
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/Nicholas/.dart-cli-completion/zsh-config.zsh ]] && . /Users/Nicholas/.dart-cli-completion/zsh-config.zsh || true
+[[ -f /Users/beninato/.dart-cli-completion/zsh-config.zsh ]] && . /Users/beninato/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-
