@@ -1,4 +1,5 @@
 abseil
+ada-url
 adwaita-icon-theme
 aircrack-ng
 ant
@@ -25,6 +26,7 @@ boxes
 brew-cask-completion
 brew-rmtree
 brotli
+btop
 bvi
 bzip2
 c-ares
@@ -106,6 +108,7 @@ gnu-sed
 gnumeric
 gnupg
 gnutls
+go
 gobject-introspection
 goffice
 gpac
@@ -124,6 +127,7 @@ gts
 harfbuzz
 hashcat
 hdf5
+hdrhistogram_c
 heroku
 hexedit
 hicolor-icon-theme
@@ -136,6 +140,7 @@ hyperfine
 ical-buddy
 icu4c@76
 icu4c@77
+icu4c@78
 id3lib
 imagemagick
 imageoptim-cli
@@ -166,6 +171,7 @@ libavif
 libb2
 libbluray
 libcuefile
+libdatrie
 libde265
 libdeflate
 libebml
@@ -179,6 +185,7 @@ libgpg-error
 libgsf
 libharu
 libheif
+libiconv
 libidn
 libidn2
 libimagequant
@@ -199,7 +206,6 @@ libomp
 libpng
 libpq
 libpsl
-libpthread-stubs
 libptytty
 libraqm
 libraw
@@ -219,6 +225,7 @@ libsoxr
 libssh
 libssh2
 libtasn1
+libthai
 libtiff
 libtommath
 libtool
@@ -249,6 +256,7 @@ libyaml
 libzen
 libzip
 little-cms2
+llhttp
 llvm
 lolcat
 lua
@@ -261,6 +269,7 @@ magic-wormhole
 mas
 maven
 mbedtls
+mbedtls@3
 md4c
 media-info
 meson
@@ -338,6 +347,7 @@ pugixml
 py3cairo
 pybind11
 pycparser
+pydantic
 pyenv
 pygobject3
 python-packaging
@@ -430,12 +440,10 @@ zbar
 zeromq
 zimg
 zlib
-zopfli
 zsh
 zsh-syntax-highlighting
 zstd
 alfred
-altdeploy
 altserver
 anki
 asset-catalog-tinkerer
@@ -483,7 +491,6 @@ karabiner-elements
 keyboard-maestro
 libreoffice
 linear-linear
-microsoft-auto-update
 microsoft-teams
 minecraft
 mtmr
