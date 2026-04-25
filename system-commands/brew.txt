@@ -185,7 +185,6 @@ libgpg-error
 libgsf
 libharu
 libheif
-libiconv
 libidn
 libidn2
 libimagequant
@@ -258,8 +257,10 @@ libzip
 little-cms2
 llhttp
 llvm
+llvm@21
 lolcat
 lua
+lua@5.4
 lucky-commit
 lz4
 lzo
@@ -454,7 +455,6 @@ browserosaurus
 calibre
 cyberduck
 db-browser-for-sqlite
-deluge
 discord
 discord-canary
 discord-ptb
@@ -501,6 +501,7 @@ obs
 obsidian
 orbstack
 plex-media-server
+postgres-app
 postgres-unofficial
 postman-cli
 pycharm-ce
@@ -512,6 +513,7 @@ qlmarkdown
 qlstephen
 qlvideo
 quicklook-json
+quicklook-video
 quicklookase
 rar
 rstudio
