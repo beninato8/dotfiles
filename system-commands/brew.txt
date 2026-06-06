@@ -257,7 +257,6 @@ libzip
 little-cms2
 llhttp
 llvm
-llvm@21
 lolcat
 lua
 lua@5.4
@@ -273,6 +272,7 @@ mbedtls
 mbedtls@3
 md4c
 media-info
+merve
 meson
 metis
 minizip
@@ -283,6 +283,7 @@ mpdecimal
 mpfr
 mpg123
 musepack
+nbytes
 ncdu
 ncurses
 neofetch
@@ -384,6 +385,7 @@ screenresolution
 sdl2
 shared-mime-info
 simdjson
+simdutf
 sl
 snappy
 sox
@@ -490,6 +492,7 @@ jupyter-notebook-viewer
 karabiner-elements
 keyboard-maestro
 libreoffice
+linear
 linear-linear
 microsoft-teams
 minecraft
