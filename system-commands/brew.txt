@@ -251,7 +251,6 @@ libxmlb
 libxmlsec1
 libxrender
 libxtst
-libyaml
 libzen
 libzip
 little-cms2
@@ -259,7 +258,6 @@ llhttp
 llvm
 lolcat
 lua
-lua@5.4
 lucky-commit
 lz4
 lzo
@@ -318,6 +316,7 @@ openjph
 openldap
 openssl@1.1
 openssl@3
+openssl@4
 openvino
 openvpn
 opus
@@ -376,7 +375,6 @@ rsync
 rtmpdump
 rtorrent
 rubberband
-ruby
 rust
 rustup
 rustup-init
