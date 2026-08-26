@@ -10,7 +10,6 @@ apr
 apr-util
 argon2
 aria2
-aribb24
 at-spi2-core
 atkmm@2.28
 autoconf
@@ -68,7 +67,6 @@ fdk-aac
 fdupes
 ffmpeg
 ffmpeg@4
-ffmpeg@6
 findutils
 fish
 flac
@@ -139,7 +137,6 @@ hwloc
 hyperfine
 ical-buddy
 icu4c@76
-icu4c@77
 icu4c@78
 id3lib
 imagemagick
@@ -152,10 +149,12 @@ isl
 jasper
 jbig2dec
 jbig2enc
+jemalloc
 jpeg
 jpeg-turbo
 jpeg-xl
 jq
+json-c
 json-glib
 jsoncpp
 krb5
@@ -207,7 +206,6 @@ libpq
 libpsl
 libptytty
 libraqm
-libraw
 libreplaygain
 librist
 librsvg
@@ -221,7 +219,6 @@ libsndfile
 libsodium
 libsoup
 libsoxr
-libssh
 libssh2
 libtasn1
 libthai
@@ -256,6 +253,7 @@ libzip
 little-cms2
 llhttp
 llvm
+llvm@22
 lolcat
 lua
 lucky-commit
@@ -266,7 +264,6 @@ mad
 magic-wormhole
 mas
 maven
-mbedtls
 mbedtls@3
 md4c
 media-info
@@ -380,13 +377,14 @@ rustup
 rustup-init
 screen
 screenresolution
-sdl2
-shared-mime-info
+sdl2-compat
+sdl3
 simdjson
 simdutf
 sl
 snappy
 sox
+spdlog
 speedtest
 speex
 sqlite
@@ -492,7 +490,6 @@ keyboard-maestro
 libreoffice
 linear
 linear-linear
-microsoft-teams
 minecraft
 mtmr
 multimc
