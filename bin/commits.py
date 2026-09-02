@@ -1,8 +1,14 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+#   "requests",
+#   "python-dotenv",
+# ]
+# ///
 
 import os
 import requests
-from datetime import datetime
+from datetime import datetime, UTC
 
 from dotenv import load_dotenv
 
@@ -24,7 +30,7 @@ query = """
     }
   }
 }
-""" % (GITHUB_USERNAME, datetime.utcnow().date(), datetime.utcnow().date())
+""" % (GITHUB_USERNAME, datetime.now(UTC).date(), datetime.now(UTC).date())
 
 url = "https://api.github.com/graphql"
 headers = {"Authorization": f"bearer {TOKEN}"}

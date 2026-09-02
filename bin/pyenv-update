@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 cd ~/GitHub/pyenv-update
 pyenv versions | grep -o "\d\+.\d\+.\d\+" | while read f; do 

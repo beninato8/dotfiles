@@ -1,0 +1,149 @@
+#!/usr/bin/env bash
+# This script creates and sets up a new git worktree
+
+usage() {
+  echo "Usage: gw <worktree-name> [new-branch-name] [base-branch] [options]"
+  echo ""
+  echo "Arguments:"
+  echo "  worktree-name       Name of the worktree directory to create"
+  echo "  new-branch-name     Optional custom branch to create"
+  echo "  base-branch         Base branch (defaults to 'main')"
+  echo ""
+  echo "Options:"
+  echo "  -b                  Use worktree name as the branch name"
+  echo "  -h, --help          Show this help message"
+  echo ""
+  echo "Examples:"
+  echo "  gw test-1                    # Creates worktree 'test-1' on branch 'main'"
+  echo "  gw test-1 -b                 # Creates worktree 'test-1' with new branch 'test-1' from 'main'"
+  echo "  gw test-1 -b develop         # Creates worktree 'test-1' with new branch 'test-1' from 'develop'"
+  echo "  gw test-1 my-feature         # Creates worktree 'test-1' with branch 'my-feature' (new or existing)"
+  echo "  gw test-1 my-feature develop # Creates worktree 'test-1' with new branch 'my-feature' from 'develop'"
+}
+
+main() {
+  local NAME=""
+  local NEW_BRANCH=""
+  local BASE_BRANCH="main"
+  local USE_NAME_AS_BRANCH=false
+  local positional_args=()
+
+  # Parse arguments
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+    -h | --help)
+      usage
+      exit 0
+      ;;
+    -b)
+      USE_NAME_AS_BRANCH=true
+      shift
+      ;;
+    -*)
+      echo "Error: Unknown option $1" >&2
+      usage
+      exit 1
+      ;;
+    *)
+      positional_args+=("$1")
+      shift
+      ;;
+    esac
+  done
+
+  # Process positional arguments
+  if [ ${#positional_args[@]} -eq 0 ]; then
+    echo "Error: worktree name is required" >&2
+    usage
+    exit 1
+  fi
+
+  NAME="${positional_args[0]}"
+
+  if [ "$USE_NAME_AS_BRANCH" = true ]; then
+    # If -b flag is set, use NAME as NEW_BRANCH
+    NEW_BRANCH="$NAME"
+    # Second positional arg (if present) is BASE_BRANCH
+    if [ ${#positional_args[@]} -ge 2 ]; then
+      BASE_BRANCH="${positional_args[1]}"
+    fi
+  else
+    # Second positional arg (if present) is NEW_BRANCH
+    if [ ${#positional_args[@]} -ge 2 ]; then
+      NEW_BRANCH="${positional_args[1]}"
+    fi
+    # Third positional arg (if present) is BASE_BRANCH
+    if [ ${#positional_args[@]} -ge 3 ]; then
+      BASE_BRANCH="${positional_args[2]}"
+    fi
+  fi
+
+  DEFAULT_REPO="$HOME/console/platform"
+  REPO="${CNSL_GIT_WORKTREE_REPO:-$DEFAULT_REPO}"
+
+  if [ ! -d "$REPO" ]; then
+    echo "Repository $REPO does not exist"
+    exit 1
+  fi
+
+  if ! git -C "$REPO" rev-parse --is-inside-work-tree &>/dev/null; then
+    echo "Directory $REPO exists but is not a valid git repository"
+    exit 1
+  fi
+
+  # Check if the worktree directory already exists
+  WORKTREE_PATH="$(dirname "$REPO")/$NAME"
+  if [ -e "$WORKTREE_PATH" ]; then
+    echo "Error: Directory '$WORKTREE_PATH' already exists"
+    exit 1
+  fi
+
+  cd "$REPO"
+
+  # clean up existing worktrees
+  git worktree prune
+
+  # Validate that the base branch is a real git reference
+  if ! git rev-parse --verify "$BASE_BRANCH" &>/dev/null; then
+    echo "Error: Base branch '$BASE_BRANCH' is not a valid git reference"
+    exit 1
+  fi
+
+  # We're trying to checkout BASE_BRANCH directly
+  if [ -z "$NEW_BRANCH" ]; then
+    # Check if the base branch is already checked out by another worktree
+    if git worktree list | grep -q "\[$BASE_BRANCH\]"; then
+      echo "Error: Branch '$BASE_BRANCH' is already in use by another worktree."
+      echo "Please provide a custom branch name as the second argument:"
+      echo "  gw $NAME <new-branch-name> <base-branch>"
+      exit 1
+    fi
+
+    # Try to add the worktree with the base branch
+    echo "Creating worktree '$NAME' on branch '$BASE_BRANCH'"
+    git worktree add ../$NAME $BASE_BRANCH
+  else
+    # Check if the branch already exists
+    if git show-ref --verify refs/heads/$NEW_BRANCH &>/dev/null; then
+      # Branch exists - check if it's already in use by another worktree
+      if git worktree list | grep -q "\[$NEW_BRANCH\]"; then
+        echo "Error: Branch '$NEW_BRANCH' is already in use by another worktree."
+        exit 1
+      fi
+
+      # Branch exists and is available - check it out
+      echo "Creating worktree '$NAME' on existing branch '$NEW_BRANCH'"
+      git worktree add ../$NAME $NEW_BRANCH
+    else
+      # Branch doesn't exist - create a new branch based on BASE_BRANCH
+      echo "Creating worktree '$NAME' on new branch '$NEW_BRANCH' based on '$BASE_BRANCH'"
+      git worktree add ../$NAME -b $NEW_BRANCH $BASE_BRANCH
+    fi
+  fi
+
+  # Setup the new worktree
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  "$SCRIPT_DIR/cnsl_init" "$(dirname "$REPO")/$NAME"
+}
+
+main "$@"

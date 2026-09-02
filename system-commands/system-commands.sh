@@ -1,11 +1,14 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # https://github.com/atomantic/dotfiles/blob/master/install.sh#L275-L1038
+
+set -xeuo pipefail
 
 # Always boot in verbose mode (show terminal instead of loading bar)
 sudo nvram boot-args="-v"
 
 # Charging chime
-defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true
+killall PowerChime
 
 # Always show scroll bars
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
@@ -135,14 +138,18 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   Comments -bool false \
   MetaData -bool true \
 
-# Most the dock settings are old
-
 # Group windows by application in Mission Control"
-defaults write com.apple.dock expose-group-apps -bool true
+defaults write com.apple.dock expose-group-apps -bool false
 
 # "Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true
 
 defaults write com.apple.dock autohide-time-modifier -int 0
 
+defaults write com.apple.dock orientation -string right
+
 killall Dock
+
+touch ~/.gitignore_global
+echo ".DS_STORE" > ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# This script initializes a Console worktree
+
+# Use current directory if no path provided
+WORKTREE_PATH="${1:-$(pwd)}"
+
+if [ ! -d "$WORKTREE_PATH" ]; then
+    echo "Error: Directory '$WORKTREE_PATH' does not exist"
+    exit 1
+fi
+
+# Get absolute path for reliable process matching
+WORKTREE_PATH="$(cd "$WORKTREE_PATH" && pwd)"
+
+cd "$WORKTREE_PATH" || exit
+
+# open cursor in the new worktree
+cursor .
+
+# `doppler setup` requires user interaction
+# these commands seem to do the same thing
+doppler configure set project console
+doppler configure set config dev_personal
+
+ln -s ../platform/lefthook-local.yml .
+ln -s ../platform/.env .
+ln -s ../platform/.envrc .
+
+cd .cursor || exit
+ln -s ../../platform/.cursor/hooks .
+ln -s ../../platform/.cursor/hooks.json .
+ln -s ../../platform/.cursor/commands .
+
+cd ..
+
+direnv allow
+
+# install and build
+pnpm install
+pnpm build

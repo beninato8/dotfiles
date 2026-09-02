@@ -224,13 +224,81 @@ gitBranchDelete()
 }
 alias gbd="gitBranchDelete"
 
+gitCheckoutMain()
+{
+    git checkout main && git pull --prune && git branch -vv | grep ': gone]'|  grep -v "^[*+]" | awk '{ print $1; }' | xargs git branch -D
+}
+alias gcm=gitCheckoutMain
+
+gitDeleteUnused() {
+    git worktree prune
+    local branches
+    branches=($(git branch --format='%(refname:short) %(upstream:short)' | grep -E '^\S+ $' | awk '{print $1}'))
+
+    for branch in "${branches[@]}"; do
+        echo -n "Delete branch '$branch'? [y/N] "
+        read answer
+        if [[ "$answer" =~ ^[Yy]$ ]]; then
+            git branch -D "$branch"
+        fi
+    done
+}
+alias gdu=gitDeleteUnused
+
+# runs gt get <branch for linear issue>
+gtGetLinear()
+{
+    local issue="$1"
+    local branch selection
+    local -a matches
+    local -A seen
+
+    if [[ -z "$issue" || "$issue" != <-> ]]; then
+        echo "usage: gcl <linear issue number>"
+        return 1
+    fi
+
+    while IFS= read -r branch; do
+        branch="${branch#origin/}"
+        [[ "$branch" == beninato/cnsl-"$issue"-* ]] || continue
+        [[ -n "${seen[$branch]}" ]] && continue
+        matches+=("$branch")
+        seen[$branch]=1
+    done < <(git for-each-ref --format='%(refname:short)' refs/heads refs/remotes/origin)
+
+    if (( ${#matches[@]} == 0 )); then
+        echo "no branch found for CNSL-$issue"
+        return 1
+    fi
+
+    if (( ${#matches[@]} > 1 )); then
+        echo "multiple branches found:"
+        for (( selection = 1; selection <= ${#matches[@]}; selection++ )); do
+            echo "  $selection) ${matches[$selection]}"
+        done
+
+        read "selection?branch number: "
+        if [[ "$selection" != <-> ]] ||
+            (( selection < 1 || selection > ${#matches[@]} )); then
+            echo "invalid branch number"
+            return 1
+        fi
+    else
+        selection=1
+    fi
+
+    gt get "${matches[$selection]}"
+}
+alias gtg=gtGetLinear
+
+# git
 alias gmv="git mv -k"
 alias ga="git add"
 alias gaa="git add -A"
 alias gs="git status"
 alias gundo="git reset HEAD~"
 alias gpl="git pull"
-alias gps="git push; ~/b/commits_out"
+alias gps="git push && ~/bin/commits_out"
 alias gopen="git open"
 alias gcheck='cd ~/Github; for d in *(/); do cd $d; echo; pwd; gs; ..; done'
 alias git-clean='git gc --prune=now --aggressive'
@@ -242,6 +310,16 @@ alias gfps='git push --force'
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset' --abbrev-commit --branches"
 alias gca="git commit --amend"
 alias gmt="git mergetool"
+alias gcd="git checkout --detach"
+alias glo="git log --oneline"
+
+# pnpm
+alias pi="pnpm install"
+alias pb="pnpm build"
+alias pd="pnpm dev"
+alias pt="pnpm test"
+alias ptd="pnpm test:db"
+alias pf="pnpm --filter"
 
 yadmCommit()
 {
