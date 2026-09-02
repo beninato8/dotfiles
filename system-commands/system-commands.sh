@@ -153,3 +153,14 @@ killall Dock
 touch ~/.gitignore_global
 echo ".DS_STORE" > ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
+git config --global user.name "Nicholas Beninato"
+git config --global user.email "beninato8@users.noreply.github.com"
+
+# enable touch id for sudo
+sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template| sudo tee /etc/pam.d/sudo_local
+
+# set up empty shell scripts
+touch $HOME/.friends $HOME/.vars
+
+echo TODO:
+echo - get a new github token and put it in ~/bin/.env
