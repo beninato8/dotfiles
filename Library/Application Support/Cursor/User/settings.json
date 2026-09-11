@@ -95,8 +95,11 @@
 	"cursor.composer.backspaceRemoveContext": false,
 	"prisma.hidePrisma6Prompts": true,
 	"gitblame.inlineMessageEnabled": true,
+	"gitblame.extendedHoverInformation": "inline-status",
 	"biome.lsp.trace.server": "verbose",
 	"cursor.composer.usageSummaryDisplay": "always",
 	"window.autoDetectColorScheme": false,
-	"terminal.integrated.enableMultiLinePasteWarning": "never"
+	"terminal.integrated.enableMultiLinePasteWarning": "never",
+	"workbench.preferredDarkColorTheme": "Default Dark Modern"
+
 }
