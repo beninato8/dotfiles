@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
+cache_file="$HOME/bin/cache/commits"
 out=$($HOME/b/commits.py)
-if [ $out ]; then
-    echo $out > $HOME/bin/cache/commits
+if [[ -n $out ]]; then
+    mkdir -p "${cache_file:h}"
+    temp_file=$(mktemp "${cache_file}.XXXXXX") || exit 1
+    print -r -- "$out" >"$temp_file" && mv "$temp_file" "$cache_file"
 fi

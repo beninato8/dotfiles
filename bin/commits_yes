@@ -1,7 +1,13 @@
 #!/bin/zsh
 
-if [ $(cat ~/b/cache/commits) != '0' ]; then 
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        echo "\uf09b $(cat ~/b/cache/commits)"
+cache_file="$HOME/bin/cache/commits"
+commits=0
+if [[ -r $cache_file ]]; then
+    commits=$(<"$cache_file")
+fi
+
+if [[ $commits != '0' ]]; then
+    if git rev-parse --git-dir >/dev/null 2>&1; then
+        echo "\uf09b $commits"
     fi
 fi
