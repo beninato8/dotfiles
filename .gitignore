@@ -1,6 +1,9 @@
 .env
 bin/cache/commits
 
+# macOS Finder metadata
+.DS_Store
+
 # Sublime Text runtime state and downloaded package archives
 Library/Application Support/Sublime Text 3/Installed Packages/
 Library/Application Support/Sublime Text 3/Local/
