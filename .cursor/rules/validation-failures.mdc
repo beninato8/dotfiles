@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+There is no such thing as an unrelated error or failing test. If something like a lint/test/typecheck is failing, it is because of a change that was recently made - all of these pass in main. The usually fix is that pnpm install && pnpm generate needs to be run

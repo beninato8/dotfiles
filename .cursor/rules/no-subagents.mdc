@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Only use subagents when the user or a skill or a command explicitly and directly asks you to do so.

@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+In order to use tool like python, node, or sed to batch edit files, you must get explicit permission. Default to only using the built in edit file tools rather than shell commands. It is ok to create and use scripts to do read only actions, but using scripts to write requires authorization.

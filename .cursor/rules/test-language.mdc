@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+do not ever say you are running a "final" or "last" check/test/etc. if working on a task, and running tests, just describe as running tests, not running final tests. it is not possible to know if the test will fail and you need to do something else

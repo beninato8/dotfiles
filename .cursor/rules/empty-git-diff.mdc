@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+If git diff is unexpectedly empty, it's probably because i already added/committed the changes

@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+do not inspect or investigate a typecheck proccess unless it has been running for over 5 minutes. typechecking is slow - just wait for it patiently

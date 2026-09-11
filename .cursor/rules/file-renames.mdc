@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+when renaming files, use `cp` rather than rewriting the file manually. copy the file over, validate the new one is correct, then delete the old one. you can use file edits to clean up imports etc in the new one, but don't use create new file + insert content as the primary way.

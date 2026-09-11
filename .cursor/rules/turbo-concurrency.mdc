@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+When using a turbo command locally (like pnpm build, pnpm test), run it like so: `TURBO_CONCURRENCY=4 pnpm test`. this is only for local terminal commands. do not modify or add TURBO_CONCURRENCY in any checked in code. check-types doesn't use turbo, so don't limit that

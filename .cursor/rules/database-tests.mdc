@@ -1,0 +1,17 @@
+---
+description: Running database (db) tests
+globs: **/*.db.test.ts
+alwaysApply: false
+---
+
+# Running Database Tests as Agent
+
+When running database tests, you MUST:
+1. Request `all` permissions to allow database operations and network access
+
+**Example command:**
+```bash
+pnpm --filter workflows test:db
+```
+
+Use `required_permissions: ["all"]` when calling the Shell tool for database tests.

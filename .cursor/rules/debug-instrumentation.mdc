@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+When debugging, do not ever remove any instrumentation until I explicitly say the isue is fixed

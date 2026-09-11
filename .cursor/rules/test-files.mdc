@@ -1,0 +1,41 @@
+---
+description: Run tests when test files are modified or created
+globs: **/*.test.ts,**/*.test.tsx,**/*.spec.ts,**/*.spec.tsx
+alwaysApply: false
+---
+
+# Test File Requirements
+
+When a test file (`.test.ts`, `.test.tsx`, `.spec.ts`, `.spec.tsx`) is **created** or **modified**, you MUST:
+
+1. **Run the tests** to verify they pass
+2. **Fix any failing tests** before considering the task complete
+3. **Ensure all tests pass** before moving on
+
+## Running Tests
+
+Use the appropriate test command based on the test file location:
+
+- **General tests**: `pnpm test` (runs all tests except smoketest)
+- **Specific package**: `pnpm --filter <package-name> test` (e.g., `app`)
+- **Smoketest**: `pnpm --filter smoketest test` (for e2e tests)
+
+## Workflow
+
+1. After creating or modifying a test file, immediately run the relevant test command
+2. If tests fail:
+ - Analyze the failure messages
+ - Fix the test implementation or the code being tested
+ - Re-run tests until they pass
+3. Only mark the task as complete once all tests pass
+
+## Example
+
+```typescript
+// After creating or modifying IncidentFormContainer.test.tsx:
+// 1. Run: pnpm --filter app test
+// 2. Verify tests pass
+// 3. If failures occur, fix them and re-run
+```
+
+Do not use doppler to run tests (aside from smoketest TEST_USER/TEST_PASSWORD). If an env var is missing, add it to the vitest config.

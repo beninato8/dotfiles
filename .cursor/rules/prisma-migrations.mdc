@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Do not manually create a prisma migration. Do not run the migrate-dev script. Only the user can create db migrations unless permission is explicitly granted.

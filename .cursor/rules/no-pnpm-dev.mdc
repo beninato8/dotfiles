@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Do not run pnpm dev. If needed, ask the user to start it.

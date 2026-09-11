@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+You can use git commands like diff, log, and show to view changes and history, but do not use any git commands that modify state, such as add, commit, rebase, or push. NEVER EVER modify git with a command like git add, git commit, git revert, or anything similar.

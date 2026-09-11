@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+when using the buildkite bk cli, do not use doppler and do not use the network sandbox
