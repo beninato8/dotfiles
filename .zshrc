@@ -201,11 +201,11 @@ bindkey '^[[B' down-line-or-beginning-search
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# export PATH="$PATH:/Users/Nicholas/.cargo/bin"
+# export PATH="$PATH:$HOME/.cargo/bin"
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/beninato/.dart-cli-completion/zsh-config.zsh ]] && . /Users/beninato/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 export NVM_DIR="$HOME/.nvm"
@@ -223,7 +223,7 @@ eval "$(direnv hook zsh)"
 # Corporate CA certificates for Node.js and CLI tools (e.g. Graphite)
 export NODE_EXTRA_CA_CERTS="${HOME}/.config/certs/ca-certs.pem"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/nbeninato/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 (( ${+_comps[docker]} )) || compinit
 # End of Docker CLI completions
