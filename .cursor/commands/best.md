@@ -1,0 +1,1 @@
+please make sure we will follow industry best practices, promote long term maintainability, and avoid unnecessary complexity. we don't want to over-engineer the solution, and we don't want short term bandaids that will cause technical debt, and we want to avoid brittle/hacky solutions or reinventing the wheel.
