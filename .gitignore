@@ -1,2 +1,7 @@
 .env
 bin/cache/commits
+
+# Sublime Text runtime state and downloaded package archives
+Library/Application Support/Sublime Text 3/Installed Packages/
+Library/Application Support/Sublime Text 3/Local/
+Library/Application Support/Sublime Text 3/Lib/
