@@ -220,10 +220,14 @@ fi
 
 eval "$(direnv hook zsh)"
 
-# Corporate CA certificates for Node.js and CLI tools (e.g. Graphite)
-export NODE_EXTRA_CA_CERTS="${HOME}/.config/certs/ca-certs.pem"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 (( ${+_comps[docker]} )) || compinit
 # End of Docker CLI completions
+
+# Corporate CA certificates for Node.js and CLI tools (e.g. Graphite, Python requests/ssl, curl)
+export NODE_EXTRA_CA_CERTS="${HOME}/.config/certs/ca-certs.pem"
+export REQUESTS_CA_BUNDLE="${HOME}/.config/certs/ca-certs.pem"
+export SSL_CERT_FILE="${HOME}/.config/certs/ca-certs.pem"
+export CURL_CA_BUNDLE="${HOME}/.config/certs/ca-certs.pem"
