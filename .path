@@ -20,5 +20,6 @@ export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
+export PATH="$HOME/.idex/bin:$PATH"
 
 # eval "$(pyenv init -)"

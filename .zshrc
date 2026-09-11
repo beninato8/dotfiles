@@ -219,3 +219,11 @@ if [[ -z "$CURSOR_AGENT" && -f ~/.p10k.zsh ]]; then
 fi
 
 eval "$(direnv hook zsh)"
+
+# Corporate CA certificates for Node.js and CLI tools (e.g. Graphite)
+export NODE_EXTRA_CA_CERTS="${HOME}/.config/certs/ca-certs.pem"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/nbeninato/.docker/completions $fpath)
+autoload -Uz compinit
+(( ${+_comps[docker]} )) || compinit
+# End of Docker CLI completions
